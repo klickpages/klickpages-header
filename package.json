@@ -2,6 +2,12 @@
   "name": "klickpages-header",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/klickpages-header.umd.js",
+  "module": "dist/klickpages-header.esm.js",
+  "unpkg": "dist/klickpages-header.min.js",
+  "browser": {
+    "./sfc": "src/klickpages-header.vue"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -29,7 +35,8 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/airbnb"
     ],
     "parserOptions": {
       "parser": "babel-eslint"
