@@ -2,7 +2,7 @@ const url = {};
 
 const validLocales = ['en', 'es', 'pt-BR'];
 
-const isLocaleValid = (locale) => validLocales.includes(locale);
+const isLocaleValid = locale => validLocales.includes(locale);
 
 const getFirstPath = (path) => {
   const paths = path.split('/');
@@ -22,6 +22,6 @@ url.getLocale = (path) => {
   return null;
 };
 
-url.hasLocale = (path) => !!url.getLocale(path);
+url.hasLocale = path => !!url.getLocale(path);
 
 export default url;
