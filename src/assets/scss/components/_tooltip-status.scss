@@ -1,0 +1,145 @@
+.tooltip-status {
+  display: none;
+  min-width: 260px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 15px 0 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 1000;
+  text-transform: none;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #5c7995 transparent;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    margin-left: -8px;
+  }
+
+  &.right {
+    top: 0;
+    left: 100%;
+    padding: 0 0 0 15px;
+    -webkit-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+    transform: translate(0);
+
+    &:before {
+      left: 7px;
+      border-width: 8px 8px 8px 0;
+      border-color: transparent #f7f7f7 transparent transparent;
+      margin-left: 0px;
+    }
+  }
+
+  > div {
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.13);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .tooltip-inner {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+
+    padding: 18px;
+    background-color: #5c7995;
+    max-width: none;
+    line-height: 15px;
+    text-align: left;
+  }
+
+  .message-content {
+    display: none;
+
+    padding: 18px;
+    background-color: #f7f7f7;
+    color: #bbbbbb;
+    font-size: 13px;
+    font-style: italic;
+    border-top: 1px solid #e8e8e8;
+
+    .icon-left {
+      color: #bbbbbb;
+      font-size: 28px;
+      margin-right: 13px;
+    }
+  }
+
+  .icon-left {
+    font-size: 37px;
+    margin: 3px 25px 0 0;
+    color: #93afda;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  i {
+    font-size: 19px;
+    margin-left: 12px;
+    vertical-align: sub;
+  }
+
+  .locked & {
+    .tooltip-inner {
+      background-color: #fff;
+      color: #72839f;
+    }
+
+    .message-content {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -moz-flex;
+      display: -webkit-flex;
+      display: flex;
+    }
+
+    &:before {
+      border-color: transparent transparent #fff transparent;
+    }
+
+    &.right:before {
+      border-color: transparent #f7f7f7 transparent transparent;
+    }
+  }
+}
+
+.tooltip-inner {
+  border-radius: 0;
+}
+
+.btn-round {
+  width: 156px;
+  height: 33px;
+  display: block;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 11px;
+  text-decoration: none;
+  opacity: 1 !important;
+  text-align: center;
+  @include gradient($gradient1, $gradient2);
+  @include border-radius(16px);
+}

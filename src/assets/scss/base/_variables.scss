@@ -1,0 +1,58 @@
+// Named Colors
+$color-black        : #333333;
+$color-white        : #ffffff;
+
+$color-green        : #65bc96;
+$color-dark-green   : #4a866a;
+$color-light-green  : #47b365;
+
+$color-light-grey   : #f7f9fa;
+$color-mid-grey     : #e1e0e3;
+$color-dark-grey    : #a6b4bb;
+$color-blueish-grey : #72829f;
+
+$color-orange       : #f7ae3a;
+
+$color-red          : #e5254a;
+
+// Cores de fonte
+$color-text-light   : #fefefe;
+$color-text-mid     : #7a7a7a;
+$color-text-dark    : #798aaa;
+
+// Tamanhos de fonte
+$default-font-size  : 10px;
+$medium-font-size   : 11px;
+$big-font-size      : 16px;
+
+// Espaçamento
+$vertical-gutter    : 25px;
+$horizontal-gutter  : 15px;
+
+// Borda
+$border-radius-md   : 8px;
+
+/* ===============================================
+Header Variables
+=============================================== */
+
+// Colors
+$green-color        : #43b35f;
+$gradient1          : #6dc69f;
+$gradient2          : #67bc77;
+$red-color          : #ef7676;
+$bg-color           : #fbfbfb;
+$border-color       : #eaeaea;
+$dark-gray          : #4f5c71;
+$grey-color         : #bbbbbb;
+
+// Typography
+$font-default       : "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-secund        : "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// sizes
+
+$menu-width         : 365px;
+$nav-icon-width     : 60px;
+$tab-width          : $menu-width - $nav-icon-width;
+

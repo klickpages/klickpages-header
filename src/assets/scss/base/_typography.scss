@@ -1,0 +1,217 @@
+// estilo geral dos headings
+.heading {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  color: $color-text-dark;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+
+  &--wtip {
+    margin-right: 4px;
+  }
+
+  &--plan {
+    color: $color-green;
+    font-size: 23px;
+    margin: 0;
+
+    span {
+      text-transform: capitalize;
+    }
+  }
+}
+
+// estilo geral dos labels
+.acc-label {
+  display: block;
+  font-size: $medium-font-size;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 0;
+  margin: 0 8px 0 0;
+  white-space: nowrap;
+  letter-spacing: 1px;
+
+  // estilo específico do labels do form
+  &--form {
+    color: $color-text-dark;
+    line-height: initial;
+    margin: $vertical-gutter 0 8px 0;
+  }
+
+  // estilo específico do labels do faturamento
+  &--billings {
+    color: $color-text-dark;
+    line-height: initial;
+    margin-bottom: 8px;
+  }
+
+  &--plan {
+    color: $color-text-dark;
+    line-height: initial;
+  }
+
+  &__price-wrapper {
+    margin-bottom: $vertical-gutter;
+  }
+
+  &__paystatus-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__payprice {
+    display: inline;
+    color: $color-green;
+    font-weight: 400;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 30px;
+  }
+
+  &__payinstallments {
+    color: $color-green;
+    display: inline;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-right: 4px;
+  }
+
+  &--paystatus {
+    font-size: 9px;
+    line-height: 9px;
+    color: $color-blueish-grey;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  &--paywarning {
+    text-transform: capitalize;
+    font-size: 9px;
+    line-height: 9px;
+    color: $color-red;
+    margin-top: $vertical-gutter;
+    font-weight: 700;
+    margin: 0;
+  }
+}
+
+// tip - wrapper texto pequeno de "dicas"
+.tip {
+  font-size: $medium-font-size;
+  display: block;
+  height: 20px;
+  position: relative;
+  top: 2px;
+
+  // wrapper texto com "dica" específico para headings
+  &--heading {
+    margin: 0;
+  }
+
+  // texto pequeno para "dicas"
+  &__wrapper {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    &--no-icon {
+      flex-direction: column;
+    }
+  }
+
+  // icone "dica"
+  &__icon {
+    display: block;
+    margin-right: 5px;
+    height: 15px;
+  }
+
+  // texto "dica"
+  &__text {
+    display: block;
+    margin: 0;
+    text-align: justify;
+    width: 100%;
+    font-size: 12px;
+
+    &--strong {
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline;
+      color: $color-text-dark;
+      margin-right: 2px;
+    }
+  }
+}
+
+// boxes
+
+.info-box {
+  width: 186px;
+  background-color: #f5f5f5;
+  height: 29px;
+  padding: 0 11px;
+  border-radius: $border-radius-md;
+  color: #bebebe;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 16px;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__text {
+    margin: 0;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    border: 1px solid #bebebe;
+    width: 16px;
+    height: 16px;
+    padding: 1px;
+    border-radius: 100%;
+    cursor: default;
+
+    &--warning {
+      border: 1px solid #ec6c62;
+    }
+
+    &--success {
+      border: 1px solid #47B365;
+    }
+  }
+
+  &--warning {
+    background-color: #ffdfdd;
+    color: #ec6c62;
+  }
+
+  &--success {
+    background-color: #D6FBE0;
+    color: #47B365;
+  }
+}
+
+/* estilos do header */
+
+.text-list-default {
+  font-weight: bold;
+  color: $grey-color;
+  text-transform: uppercase;
+}

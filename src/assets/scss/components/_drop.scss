@@ -1,0 +1,159 @@
+$language: ("pt-BR", "en", "es");
+
+.drop {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: super;
+  font-weight: bold;
+  font-size: 11px;
+  cursor: pointer;
+  margin-left: 17px;
+  margin-right: auto;
+
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+
+  > a {
+    padding-right: 15px;
+    color: #a0aaac;
+    text-decoration: none;
+
+   &::after {
+     content: none; /* added 07/2019 */
+   }
+  }
+
+  &:hover {
+    .drop__list {
+      display: block;
+    }
+  }
+
+  &__list {
+    box-shadow: none;
+    display: none;
+    min-width: 0;
+    position: absolute;
+    color: #a2a2a2;
+    font-size: 10px;
+    top: 100%;
+    left: 100%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    margin-top: 0;
+    border: 0;
+    padding: 0;
+    padding-top: 15px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      margin-left: -5px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent #fff transparent;
+    }
+  }
+
+  &__shadow {
+    background: #fff;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.175);
+  }
+
+  &__item {
+    display: block;
+    color: #a2a2a2;
+    height: 48px;
+    padding: 17px 15px;
+    text-decoration: none;
+
+    + .drop__item {
+      border-top: 1px solid #e2e2e2;
+    }
+
+    .select {
+      display: none;
+      font-size: 7px;
+      padding-left: 25px;
+    }
+
+    &:hover {
+      color: #a2a2a2;
+      background: #f8f8f8;
+      text-decoration: none;
+    }
+
+    &.active {
+      color: #6cc499;
+      padding: 12px 15px;
+      .select {
+        display: block;
+        color: #cbcbcb;
+      }
+    }
+  }
+
+  &__text {
+    display: none;
+    font-size: 9px;
+    color: #bcf5d5;
+    margin-bottom: 7px;
+  }
+
+  &.open {
+    .drop__list {
+      display: block;
+    }
+  }
+
+  svg,
+  .image {
+    display: inline-block;
+    width: 17px;
+    height: 13px;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-top: -2px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  @each $value in $language {
+    .image.image--#{$value} {
+      background-image: url("assets/images/flag-#{$value}.png");
+    }
+  }
+
+  &:after,
+  &:before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 5px;
+    transform: rotate(40deg);
+    background: #a0aaac;
+    position: absolute;
+    right: 2px;
+    bottom: 5px;
+  }
+
+  &:before {
+    transform: rotate(-40deg);
+    right: 5px;
+  }
+}
