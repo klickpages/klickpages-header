@@ -1,7 +1,9 @@
 {
   "name": "klickpages-header",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.2",
+  "private": false,
+  "description": "A Vue component for klick applications to get the klickpages header",
+  "author": "Iago Gonçalves <iago.goncalves@klickpages.com.br>",
   "main": "dist/klickpages-header.umd.js",
   "module": "dist/klickpages-header.esm.js",
   "unpkg": "dist/klickpages-header.min.js",
