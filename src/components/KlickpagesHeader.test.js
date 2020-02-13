@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import topBarRequest from '../services/klickartRequest/topBar';
-import KlickpagesHeader from './KlickpagesHeader';
+import KlickpagesHeader from './KlickpagesHeader.vue';
 
 const mockHtml = 'mockedHTML';
 jest.mock('../services/klickartRequest/topBar');
