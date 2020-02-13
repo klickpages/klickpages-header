@@ -1,4 +1,4 @@
-import i18n from '@/i18n';
+import i18n from '../../i18n';
 import TopBar from './topBar';
 import Klickart from './index';
 

@@ -11,18 +11,18 @@ export default class Klickart {
   }
 
   get(resource = '', config = {}) {
-    return this.axios.get(`${this.path}/${resource}`, { ...configRequest(), ...config });
+    return this.axios.get(`${this.path}/${resource}`, Object.assign({}, configRequest(), config));
   }
 
   put(resource = '', data, config = {}) {
-    return this.axios.put(`${this.path}/${resource}`, data, { ...configRequest(), ...config });
+    return this.axios.put(`${this.path}/${resource}`, data, Object.assign({}, configRequest(), config));
   }
 
   post(resource = '', data, config = {}) {
-    return this.axios.post(`${this.path}/${resource}`, data, { ...configRequest(), ...config });
+    return this.axios.post(`${this.path}/${resource}`, data, Object.assign({}, configRequest(), config));
   }
 
   delete(resource = '', config = {}) {
-    return this.axios.delete(`${this.path}/${resource}`, { ...configRequest(), ...config });
+    return this.axios.delete(`${this.path}/${resource}`, Object.assign({}, configRequest(), config));
   }
 }

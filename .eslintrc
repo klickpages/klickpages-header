@@ -2,6 +2,7 @@
   "root": true,
   "env": {
     "node": true,
+    "browser": true,
     "jest": true
   },
   "extends": [
@@ -15,6 +16,7 @@
   "rules": {
     "no-shadow": 0,
     "import/no-unresolved": 0,
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "prefer-object-spread": 0
   }
 }

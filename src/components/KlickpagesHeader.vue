@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import TopBarRequest from '@/services/api/klickart/request/topBar';
+import TopBarRequest from '../services/klickartRequest/topBar';
 
 export default {
   name: 'KlickpagesHeader',

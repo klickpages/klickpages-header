@@ -10,8 +10,10 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name klickpages-header src/main.js",
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/klickpages-header.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/klickpages-header.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/klickpages-header.min.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -35,7 +37,11 @@
     "babel-jest": "^25.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.1.2",
-    "faker": "^4.1.0",
+    "rollup": "^1.31.0",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-vue": "^5.1.6",
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
