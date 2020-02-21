@@ -3,7 +3,7 @@ import Klickart from './index';
 
 export default class TopBar extends Klickart {
   constructor(config = {}) {
-    config.path = `${i18n.locale}/partials/top_bar`;
+    config.path = `${i18n.locale}/partials/top_bar_config`;
     super(config);
   }
 }
