@@ -1,13 +1,14 @@
 <template>
   <div class="navbar" role="navigation">
-    <menu-switch v-if="klicksendEnabled "></menu-switch>
+    <menu-switch></menu-switch>
+    <nav-link-list />
   </div>
-  <!-- /#nav-normal -->
 </template>
 
 <script>
-import TopBarRequest from '../services/klickartRequest/topBar';
+import { mapActions } from 'vuex';
 import MenuSwitch from './MenuSwitch.vue';
+import NavLinkList from './NavLinkList.vue';
 
 export default {
   name: 'KlickpagesHeader',
@@ -16,14 +17,17 @@ export default {
   },
   components: {
     MenuSwitch,
+    NavLinkList,
   },
-  mounted() {
-    const topBarRequest = new TopBarRequest({
-      klickartUrl: this.klickartUrl,
-    });
-
-    topBarRequest.get().then(() => {
-    });
+  methods: mapActions({
+    getTopBarConfig: 'topBar/getConfig',
+  }),
+  async mounted() {
+    try {
+      await this.getTopBarConfig(this.klickartUrl);
+    } catch (error) {
+      console.error(error);
+    }
   },
 };
 </script>
