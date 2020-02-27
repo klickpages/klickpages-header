@@ -1,4 +1,5 @@
 module.exports = {
+  lintOnSave: false,
   pluginOptions: {
     i18n: {
       locale: 'pt-BR',

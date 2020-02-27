@@ -1,33 +1,57 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import topBarRequest from '../services/klickartRequest/topBar';
+import Vuex from 'vuex';
 import KlickpagesHeader from './KlickpagesHeader.vue';
-
-const mockHtml = 'mockedHTML';
-jest.mock('../services/klickartRequest/topBar');
 
 describe('components/KlickpagesHeader.vue', () => {
   const localVue = createLocalVue();
+  localVue.use(Vuex);
+
   let wrapper;
 
+  const klickartUrl = 'art.klickpages.com.br';
+
+  const topBar = {
+    namespaced: true,
+  };
+
+  const propsData = {
+    klickartUrl,
+  };
+
   describe('when component is mounted', () => {
-    const klickartUrl = 'art.klickpages.com.br';
-    const propsData = {
-      klickartUrl,
-    };
-
     beforeAll(() => {
-      topBarRequest.mockImplementation(() => ({
-        get: () => Promise.resolve({ data: mockHtml }),
-      }));
-      wrapper = shallowMount(KlickpagesHeader, { propsData, localVue });
+      topBar.actions = {
+        getConfig: jest.fn().mockImplementation(() => Promise.resolve()),
+      };
+
+      const store = new Vuex.Store({ modules: { topBar } });
+      wrapper = shallowMount(KlickpagesHeader, { propsData, localVue, store });
     });
 
-    it('should call topBarRequest with the klickartUrl', () => {
-      expect(topBarRequest).toHaveBeenCalledWith({ klickartUrl });
+    it('should call getTopBarConfig action with the klickartUrl', () => {
+      expect(topBar.actions.getConfig).toHaveBeenCalledWith(expect.any(Object), klickartUrl);
     });
 
-    it('should override the component html with the html returned by the request', () => {
-      expect(wrapper.element).toMatchSnapshot();
+    describe('and getTopBarConfig action fails', () => {
+      const error = 'error';
+      beforeAll(() => {
+        topBar.actions = {
+          getConfig: jest.fn().mockImplementation(() => Promise.reject(error)),
+        };
+
+        const store = new Vuex.Store({ modules: { topBar } });
+        wrapper = shallowMount(KlickpagesHeader, { propsData, localVue, store });
+        jest.spyOn(global.console, 'error');
+      });
+
+      it('should call console.error with error', () => {
+        expect(console.error).toHaveBeenCalledWith(error);
+      });
+    });
+
+    afterAll(() => {
+      wrapper.destroy();
+      jest.clearAllMocks();
     });
   });
 });

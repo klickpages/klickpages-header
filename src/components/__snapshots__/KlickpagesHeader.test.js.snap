@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`components/KlickpagesHeader.vue when component is mounted should override the component html with the html returned by the request 1`] = `
-<div>
-  mockedHTML
-</div>
-`;
