@@ -1,13 +1,23 @@
 <template>
   <div class="navbar" role="navigation">
-    <menu-switch></menu-switch>
-    <nav-link-list />
+    <menu-switch />
+    <div class="container no-padding">
+      <locale-dropdown v-if="loaded"
+        :currentLocale="topBarConfig.locale.current_locale"
+        :portuguese="topBarConfig.locale.portuguese"
+        :english="topBarConfig.locale.english"
+        :spanish="topBarConfig.locale.spanish"
+        :selected="topBarConfig.locale.selected"
+      />
+      <nav-link-list />
+    </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import MenuSwitch from './MenuSwitch.vue';
+import LocaleDropdown from './LocaleDropdown.vue';
 import NavLinkList from './NavLinkList.vue';
 
 export default {
@@ -15,9 +25,18 @@ export default {
   props: {
     klickartUrl: String,
   },
+  data() {
+    return {
+      loaded: false,
+    };
+  },
+  computed: mapGetters({
+    topBarConfig: 'topBar/config',
+  }),
   components: {
     MenuSwitch,
     NavLinkList,
+    LocaleDropdown,
   },
   methods: mapActions({
     getTopBarConfig: 'topBar/getConfig',
@@ -25,6 +44,7 @@ export default {
   async mounted() {
     try {
       await this.getTopBarConfig(this.klickartUrl);
+      this.loaded = true;
     } catch (error) {
       console.error(error);
     }
