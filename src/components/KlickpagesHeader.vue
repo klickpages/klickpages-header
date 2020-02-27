@@ -2,20 +2,14 @@
   <div class="navbar" role="navigation">
     <menu-switch />
     <div class="container no-padding">
-      <locale-dropdown v-if="loaded"
-        :currentLocale="topBarConfig.locale.current_locale"
-        :portuguese="topBarConfig.locale.portuguese"
-        :english="topBarConfig.locale.english"
-        :spanish="topBarConfig.locale.spanish"
-        :selected="topBarConfig.locale.selected"
-      />
+      <locale-dropdown v-if="loaded"/>
       <nav-link-list />
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 import MenuSwitch from './MenuSwitch.vue';
 import LocaleDropdown from './LocaleDropdown.vue';
 import NavLinkList from './NavLinkList.vue';
@@ -30,9 +24,6 @@ export default {
       loaded: false,
     };
   },
-  computed: mapGetters({
-    topBarConfig: 'topBar/config',
-  }),
   components: {
     MenuSwitch,
     NavLinkList,
