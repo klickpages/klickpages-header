@@ -37,11 +37,9 @@ import ProfileIcon from './icons/Profile.vue';
 import LogoutIcon from './icons/Logout.vue';
 
 export default {
-  computed: {
-    ...mapGetters({
-      topBarConfig: 'topBar/config',
-    }),
-  },
+  computed: mapGetters({
+    topBarConfig: 'topBar/config',
+  }),
   components: {
     DomainIcon,
     ProfileIcon,

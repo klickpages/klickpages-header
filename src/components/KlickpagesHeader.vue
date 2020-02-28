@@ -3,8 +3,9 @@
     <menu-switch />
     <div class="container no-padding">
       <home-link />
-      <locale-dropdown v-if="loaded"/>
+      <locale-dropdown />
       <nav-link-list />
+      <mail-service-link />
       <menu-user-dropdown />
     </div>
   </div>
@@ -17,16 +18,12 @@ import HomeLink from './HomeLink.vue';
 import LocaleDropdown from './LocaleDropdown.vue';
 import NavLinkList from './NavLinkList.vue';
 import MenuUserDropdown from './MenuUserDropdown.vue';
+import MailServiceLink from './MailServiceLink.vue';
 
 export default {
   name: 'KlickpagesHeader',
   props: {
     klickartUrl: String,
-  },
-  data() {
-    return {
-      loaded: false,
-    };
   },
   components: {
     MenuSwitch,
@@ -34,6 +31,7 @@ export default {
     LocaleDropdown,
     HomeLink,
     MenuUserDropdown,
+    MailServiceLink,
   },
   methods: mapActions({
     getTopBarConfig: 'topBar/getConfig',
