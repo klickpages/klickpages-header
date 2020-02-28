@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when component is mounted when is on en locale should renders html correctly 1`] = `
+<div
+  class="dropdown drop"
+  href="#"
+>
+  <div
+    class="drop__text"
+  />
+   
+  <a
+    class="dropdown-toggle"
+    data-toggle="dropdown"
+    href="javascript:;"
+  >
+    <span
+      class="image image--en"
+    />
+    
+    en
+  
+  </a>
+   
+  <div
+    class="drop__list dropdown-menu"
+  >
+    <div
+      class="drop__shadow"
+    >
+      <a
+        class="drop__item"
+        href="/pt-BR"
+      >
+        <span
+          class="image image--pt-BR"
+        />
+        
+        Portuguese
+        
+        <span
+          class="select"
+        >
+          Selected
+        </span>
+      </a>
+       
+      <a
+        class="drop__item active"
+        href="/en"
+      >
+        <span
+          class="image image--en"
+        />
+        
+        English
+        
+        <span
+          class="select"
+        >
+          Selected
+        </span>
+      </a>
+       
+      <a
+        class="drop__item"
+        href="/es"
+      >
+        <span
+          class="image image--es"
+        />
+        
+        Spanish
+        
+        <span
+          class="select"
+        >
+          Selected
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`when component is mounted when is on es locale should renders html correctly 1`] = `
+<div
+  class="dropdown drop"
+  href="#"
+>
+  <div
+    class="drop__text"
+  />
+   
+  <a
+    class="dropdown-toggle"
+    data-toggle="dropdown"
+    href="javascript:;"
+  >
+    <span
+      class="image image--es"
+    />
+    
+    es
+  
+  </a>
+   
+  <div
+    class="drop__list dropdown-menu"
+  >
+    <div
+      class="drop__shadow"
+    >
+      <a
+        class="drop__item"
+        href="/pt-BR"
+      >
+        <span
+          class="image image--pt-BR"
+        />
+        
+        Portugués
+        
+        <span
+          class="select"
+        >
+          Seleccionado
+        </span>
+      </a>
+       
+      <a
+        class="drop__item"
+        href="/en"
+      >
+        <span
+          class="image image--en"
+        />
+        
+        Inglés
+        
+        <span
+          class="select"
+        >
+          Seleccionado
+        </span>
+      </a>
+       
+      <a
+        class="drop__item active"
+        href="/es"
+      >
+        <span
+          class="image image--es"
+        />
+        
+        Español
+        
+        <span
+          class="select"
+        >
+          Seleccionado
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`when component is mounted when is on pt-BR locale should renders html correctly 1`] = `
+<div
+  class="dropdown drop"
+  href="#"
+>
+  <div
+    class="drop__text"
+  />
+   
+  <a
+    class="dropdown-toggle"
+    data-toggle="dropdown"
+    href="javascript:;"
+  >
+    <span
+      class="image image--pt-BR"
+    />
+    
+    pt-BR
+  
+  </a>
+   
+  <div
+    class="drop__list dropdown-menu"
+  >
+    <div
+      class="drop__shadow"
+    >
+      <a
+        class="drop__item active"
+        href="/pt-BR"
+      >
+        <span
+          class="image image--pt-BR"
+        />
+        
+        Português
+        
+        <span
+          class="select"
+        >
+          Selecionado
+        </span>
+      </a>
+       
+      <a
+        class="drop__item"
+        href="/en"
+      >
+        <span
+          class="image image--en"
+        />
+        
+        Inglês
+        
+        <span
+          class="select"
+        >
+          Selecionado
+        </span>
+      </a>
+       
+      <a
+        class="drop__item"
+        href="/es"
+      >
+        <span
+          class="image image--es"
+        />
+        
+        Espanhol
+        
+        <span
+          class="select"
+        >
+          Selecionado
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;
