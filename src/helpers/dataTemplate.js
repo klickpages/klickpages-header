@@ -58,4 +58,7 @@ export default {
     selected: '',
     spanish: '',
   },
+  user: {
+    name: '',
+  },
 };
