@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/NavLinkItem.vue when component is mounted and does not have linkDescription prop should renders correctly 1`] = `
+<li
+  class="locked"
+>
+  <a
+    href="javascript:;"
+  >
+    <i
+      class="icon mr"
+    />
+     
+    <span
+      class="title"
+    >
+      linkTitle
+    </span>
+  </a>
+   
+  <!---->
+</li>
+`;
+
+exports[`components/NavLinkItem.vue when component is mounted and enabled prop is false should renders correctly 1`] = `
+<li
+  class="locked"
+>
+  <a
+    href="javascript:;"
+  >
+    <i
+      class="icon mr"
+    />
+     
+    <span
+      class="title"
+    >
+      linkTitle
+    </span>
+  </a>
+   
+  <div
+    class="tooltip-status"
+  >
+    <div>
+      <div
+        class="tooltip-inner"
+      >
+        <i
+          class="icon-left icon"
+        />
+        
+        linkDescription
+      
+      </div>
+       
+      <div
+        class="message-content"
+      >
+        <i
+          class="icon-left icon-kp-lock"
+        />
+         
+        <div>
+          
+            
+          
+          <a
+            class="btn-round"
+            href=""
+            target="_blank"
+          >
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+`;
+
+exports[`components/NavLinkItem.vue when component is mounted and enabled prop is true should renders correctly 1`] = `
+<li
+  class=""
+>
+  <a
+    href="https://url.com"
+  >
+    <i
+      class="icon mr"
+    />
+     
+    <span
+      class="title"
+    >
+      linkTitle
+    </span>
+  </a>
+   
+  <div
+    class="tooltip-status"
+  >
+    <div>
+      <div
+        class="tooltip-inner"
+      >
+        <i
+          class="icon-left icon"
+        />
+        
+        linkDescription
+      
+      </div>
+       
+      <div
+        class="message-content"
+      >
+        <i
+          class="icon-left icon-kp-lock"
+        />
+         
+        <div>
+          
+            
+          
+          <a
+            class="btn-round"
+            href=""
+            target="_blank"
+          >
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+`;
+
+exports[`components/NavLinkItem.vue when component is mounted and have linkDescription prop should renders correctly 1`] = `
+<li
+  class="locked"
+>
+  <a
+    href="javascript:;"
+  >
+    <i
+      class="icon mr"
+    />
+     
+    <span
+      class="title"
+    >
+      linkTitle
+    </span>
+  </a>
+   
+  <div
+    class="tooltip-status"
+  >
+    <div>
+      <div
+        class="tooltip-inner"
+      >
+        <i
+          class="icon-left icon"
+        />
+        
+        linkDescription
+      
+      </div>
+       
+      <div
+        class="message-content"
+      >
+        <i
+          class="icon-left icon-kp-lock"
+        />
+         
+        <div>
+          
+            
+          
+          <a
+            class="btn-round"
+            href=""
+            target="_blank"
+          >
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+`;

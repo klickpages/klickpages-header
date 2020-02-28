@@ -18,7 +18,7 @@ describe('services/api/klickart/request/topBar', () => {
 
   describe('When creating a new topBar', () => {
     beforeAll(() => {
-      expectedConfig.path = `${i18n.locale}/partials/top_bar`;
+      expectedConfig.path = `${i18n.locale}/partials/top_bar_config`;
       topBar = new TopBar();
     });
 
@@ -38,7 +38,7 @@ describe('services/api/klickart/request/topBar', () => {
       };
 
       expectedConfig = {
-        path: `${i18n.locale}/partials/top_bar`,
+        path: `${i18n.locale}/partials/top_bar_config`,
         param: true,
       };
 

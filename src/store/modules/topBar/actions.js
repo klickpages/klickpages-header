@@ -5,7 +5,6 @@ const actions = {};
 
 actions.getConfig = ({ commit }, klickartUrl) => {
   const topBarRequest = new TopBarRequest({ klickartUrl });
-
   return topBarRequest
     .get()
     .then(({ data }) => {

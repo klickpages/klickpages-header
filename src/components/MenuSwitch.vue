@@ -19,9 +19,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  props: {
-    klicksendUrl: String,
-  },
+  name: 'MenuSwitch',
   computed: mapGetters({
     topBarConfig: 'topBar/config',
   }),

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/NavLinkList.vue when component is mounted should renders correctly 1`] = `
+<ul
+  class="navbar__menu"
+  id="kp-nav-header"
+>
+  <nav-link-item-stub
+    enabled="true"
+    icon="icon-kp-monitor"
+    linkdescription=""
+    linktitle=""
+    url=""
+  />
+   
+  <nav-link-item-stub
+    enabled="true"
+    icon="icon-kp-testab"
+    linkdescription=""
+    linktitle=""
+    url=""
+  />
+   
+  <nav-link-item-stub
+    enabled="true"
+    icon="icon-kp-klicktimer"
+    linkdescription=""
+    linktitle=""
+    url=""
+  />
+   
+  <nav-link-item-stub
+    enabled="true"
+    icon="icon-kp-pop-up"
+    linkdescription=""
+    linktitle=""
+    url=""
+  />
+   
+  <nav-link-item-stub
+    enabled="true"
+    icon="icon-kp-link"
+    linkdescription=""
+    linktitle=""
+    url=""
+  />
+</ul>
+`;

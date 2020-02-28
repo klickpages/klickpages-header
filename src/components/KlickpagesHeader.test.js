@@ -33,7 +33,7 @@ describe('components/KlickpagesHeader.vue', () => {
     });
 
     describe('and getTopBarConfig action fails', () => {
-      const error = 'error';
+      const error = 'Test error';
       beforeAll(() => {
         topBar.actions = {
           getConfig: jest.fn().mockImplementation(() => Promise.reject(error)),

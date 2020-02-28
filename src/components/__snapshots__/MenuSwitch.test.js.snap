@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/MenuSwitch.vue when component is mounted and klicksend topBarConfig is enabled should renders correctly 1`] = `
+<div
+  class="menu--switch"
+>
+  <ul
+    class="container no-padding"
+  >
+    <li>
+      <i
+        class="icon-kp-kp"
+      />
+      
+      Klickpages
+    
+    </li>
+     
+    <li
+      class="myKlicksendMenu"
+    >
+      <a
+        data-turbolinks="false"
+      >
+        <i
+          class="icon-kp-ks"
+        />
+        
+        Klicksend
+      
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`components/MenuSwitch.vue when component is mounted and klicksend topBarConfig is not enabled should renders correctly 1`] = `<!---->`;
