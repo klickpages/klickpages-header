@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     localePath(locale) {
-      if (window.location.href.search(this.topBarConfig.locale.current_locale) < 0) {
+      if (window.location.href.search(`/${this.topBarConfig.locale.current_locale}`) < 0) {
         return `/${locale}`;
       }
 
