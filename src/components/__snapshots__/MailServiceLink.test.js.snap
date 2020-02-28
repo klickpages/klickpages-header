@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/MailServiceLink.vue when component is mounted should render the html correctly 1`] = `
+<div
+  class="nav-mail"
+>
+  <a
+    class="lock-screen"
+    href="mailservice-url.com"
+  >
+    <mail-service-icon-stub />
+  </a>
+   
+  <div
+    class="tooltip-status"
+  >
+    <div
+      class="tooltip-inner"
+    >
+      
+      mailservice description
+    
+    </div>
+  </div>
+</div>
+`;

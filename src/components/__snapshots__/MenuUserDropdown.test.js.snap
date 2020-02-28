@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/MenuUserDropdown.vue when component is mounted should render the html correctly 1`] = `
+<div
+  class="dropdown menu-user"
+>
+  <a
+    class="kp-user dropdown-toggle clearfix"
+    data-toggle="dropdown"
+    href="javascript:;"
+  >
+    <span
+      class="btn-user"
+    >
+      F
+    </span>
+     
+    <span
+      class="user__text"
+    >
+      Foo Bar
+    </span>
+     
+    <span
+      class="btn"
+    >
+      <i
+        class="fa fa-angle-down"
+      />
+    </span>
+  </a>
+   
+  <ul
+    class="dropdown-menu"
+  >
+    <li>
+      <a
+        class="option"
+        href="profile-url.com"
+      >
+        <profile-icon-stub />
+        
+        profile
+      
+      </a>
+    </li>
+     
+    <li>
+      <a
+        class="option"
+        href="domain-url.com"
+      >
+        <domain-icon-stub />
+        
+        domain
+      
+      </a>
+    </li>
+     
+    <li>
+      <a
+        class="option"
+        href="logout-url.com"
+      >
+        <logout-icon-stub />
+        
+        logout
+      
+      </a>
+    </li>
+  </ul>
+</div>
+`;
