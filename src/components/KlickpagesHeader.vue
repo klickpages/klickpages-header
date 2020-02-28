@@ -2,7 +2,7 @@
   <div class="navbar" role="navigation">
     <menu-switch />
     <div class="container no-padding">
-      <locale-dropdown v-if="loaded"/>
+      <locale-dropdown/>
       <nav-link-list />
     </div>
   </div>
@@ -32,13 +32,11 @@ export default {
   methods: mapActions({
     getTopBarConfig: 'topBar/getConfig',
   }),
-  async mounted() {
-    try {
-      await this.getTopBarConfig(this.klickartUrl);
-      this.loaded = true;
-    } catch (error) {
-      console.error(error);
-    }
+  mounted() {
+    this.getTopBarConfig(this.klickartUrl)
+      .catch((error) => {
+        console.error(error);
+      });
   },
 };
 </script>

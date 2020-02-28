@@ -41,6 +41,7 @@ import { mapGetters } from 'vuex';
 import NavLinkItem from './NavLinkItem.vue';
 
 export default {
+  name: 'NavLinkList',
   components: {
     NavLinkItem,
   },
