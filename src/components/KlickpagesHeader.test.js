@@ -2,6 +2,8 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import KlickpagesHeader from './KlickpagesHeader.vue';
 
+global.console = { error: jest.fn() };
+
 describe('components/KlickpagesHeader.vue', () => {
   const localVue = createLocalVue();
   localVue.use(Vuex);
@@ -41,7 +43,6 @@ describe('components/KlickpagesHeader.vue', () => {
 
         const store = new Vuex.Store({ modules: { topBar } });
         wrapper = shallowMount(KlickpagesHeader, { propsData, localVue, store });
-        jest.spyOn(global.console, 'error');
       });
 
       it('should call console.error with error', () => {

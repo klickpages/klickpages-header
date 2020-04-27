@@ -1,7 +1,7 @@
 export default {
   klicksend: {
     url: '',
-    enabled: true,
+    enabled: false,
   },
   home: {
     title: '',
@@ -11,19 +11,19 @@ export default {
     title: '',
     description: '',
     url: '',
-    enabled: true,
+    enabled: false,
   },
   klicktimer: {
     title: '',
     description: '',
     url: '',
-    enabled: true,
+    enabled: false,
   },
   klickbox: {
     title: '',
     description: '',
     url: '',
-    enabled: true,
+    enabled: false,
   },
   klickredirect: {
     title: '',

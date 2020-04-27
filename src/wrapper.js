@@ -1,23 +1,14 @@
 import KlickpagesHeader from './components/KlickpagesHeader.vue';
+import topBar from './store/modules/topBar';
 
-export function install(Vue) {
-  if (install.installed) return;
-  install.installed = true;
-  Vue.component('KlickpagesHeader', KlickpagesHeader);
-}
+export default {
+  install(Vue, options) {
+    if (!options || !options.store) {
+      throw new Error('Please initialise plugin with a Vuex store.');
+    }
 
-const plugin = {
-  install,
+    options.store.registerModule('topBar', topBar);
+
+    Vue.component('klickpages-header', KlickpagesHeader);
+  },
 };
-
-let GlobalVue = null;
-if (typeof window !== 'undefined') {
-  GlobalVue = window.Vue;
-} else if (typeof global !== 'undefined') {
-  GlobalVue = global.Vue;
-}
-if (GlobalVue) {
-  GlobalVue.use(plugin);
-}
-
-export default KlickpagesHeader;
