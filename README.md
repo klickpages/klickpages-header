@@ -1,24 +1,55 @@
 # klickpages-header
 
-## Project setup
-```
-yarn install
+A Vue component for klick applications to get the klickpages header.
+
+## Install
+
+``` npm install @klicksite/klickpages-header ```
+
+or
+
+``` yarn add @klicksite/klickpages-header ```
+
+## Example
+
+Klickpages-header component depends on your application having a configured vuex store.
+
+```js 
+//main.js
+
+import Vue from 'vue';
+import App from './App.vue';
+import KlickpagesHeader from 'klickpages-header';
+import store from './store';
+
+Vue.use(KlickpagesHeader, { store });
+
+new Vue({
+  store,
+  render: (h) => h(App),
+}).$mount('#app');
+
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
+```html
+<!-- App.vue -->
+
+<template>
+  <div>
+    <klickpages-header :klickartUrl=""/>
+    <router-view />
+  </div>
+</template>
+
+<script>
+
+export default {};
+</script>
+
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Documentation
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+| prop        | description                               | required | default |
+|-------------|-------------------------------------------|----------|---------|
+| klickartUrl | klickart url according to the environment | yes      | null    |

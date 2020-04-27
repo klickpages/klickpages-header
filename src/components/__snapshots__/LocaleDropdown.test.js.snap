@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when component is mounted when is on en locale should renders html correctly 1`] = `
+exports[`components/LocaleDropdown.vue when component is mounted when is on en locale should renders html correctly 1`] = `
 <div
   class="dropdown drop"
   href="#"
@@ -83,7 +83,7 @@ exports[`when component is mounted when is on en locale should renders html corr
 </div>
 `;
 
-exports[`when component is mounted when is on es locale should renders html correctly 1`] = `
+exports[`components/LocaleDropdown.vue when component is mounted when is on es locale should renders html correctly 1`] = `
 <div
   class="dropdown drop"
   href="#"
@@ -166,7 +166,7 @@ exports[`when component is mounted when is on es locale should renders html corr
 </div>
 `;
 
-exports[`when component is mounted when is on pt-BR locale should renders html correctly 1`] = `
+exports[`components/LocaleDropdown.vue when component is mounted when is on pt-BR locale should renders html correctly 1`] = `
 <div
   class="dropdown drop"
   href="#"
