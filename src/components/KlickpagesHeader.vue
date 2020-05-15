@@ -6,6 +6,7 @@
       <locale-dropdown />
       <nav-link-list />
       <mail-service-link />
+      <notification-dropdown />
       <menu-user-dropdown />
     </div>
   </div>
@@ -19,6 +20,7 @@ import LocaleDropdown from './LocaleDropdown.vue';
 import NavLinkList from './NavLinkList.vue';
 import MenuUserDropdown from './MenuUserDropdown.vue';
 import MailServiceLink from './MailServiceLink.vue';
+import NotificationDropdown from './notification/NotificationDropdown.vue';
 
 export default {
   name: 'KlickpagesHeader',
@@ -32,6 +34,7 @@ export default {
     HomeLink,
     MenuUserDropdown,
     MailServiceLink,
+    NotificationDropdown,
   },
   methods: mapActions({
     getTopBarConfig: 'topBar/getConfig',
