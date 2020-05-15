@@ -3,6 +3,9 @@ import Vuex from 'vuex';
 import KlickpagesHeader from './KlickpagesHeader.vue';
 
 global.console = { error: jest.fn() };
+jest.mock('@/i18n', () => ({
+  t: jest.fn((str) => str),
+}));
 
 describe('components/KlickpagesHeader.vue', () => {
   const localVue = createLocalVue();

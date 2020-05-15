@@ -22,7 +22,7 @@ const loadLocaleMessages = () => {
   return messages;
 };
 
-const getDefinedLocale = () => {
+export const getDefinedLocale = () => {
   const urlLocale = urlGetLocale(window.location.pathname);
   const cookieLocale = getLocale();
 

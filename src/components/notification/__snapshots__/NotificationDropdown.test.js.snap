@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/notification/NotificationDropdown when component is mounted and notificationsOpen is false should renders html correctly 1`] = `
+<div
+  class="nav-notifications"
+  style="display: block;"
+>
+  <div
+    class="new-notifications-signal"
+  />
+   
+  <a
+    class="dropdown-toggle"
+    data-toggle="dropdown"
+    href="javascript:;"
+  >
+    <notification-icon-stub />
+  </a>
+   
+  <notification-list-stub />
+</div>
+`;
+
+exports[`components/notification/NotificationDropdown when component is mounted and notificationsOpen is truthy should renders html correctly 1`] = `
+<div
+  class="nav-notifications open"
+  style="display: block;"
+>
+  <div
+    class="new-notifications-signal"
+  />
+   
+  <a
+    class="dropdown-toggle"
+    data-toggle="dropdown"
+    href="javascript:;"
+  >
+    <notification-icon-stub />
+  </a>
+   
+  <notification-list-stub />
+</div>
+`;

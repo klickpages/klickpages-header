@@ -20,7 +20,7 @@ import LocaleDropdown from './LocaleDropdown.vue';
 import NavLinkList from './NavLinkList.vue';
 import MenuUserDropdown from './MenuUserDropdown.vue';
 import MailServiceLink from './MailServiceLink.vue';
-import NotificationDropdown from './Notification/NotificationDropdown.vue';
+import NotificationDropdown from './notification/NotificationDropdown.vue';
 
 export default {
   name: 'KlickpagesHeader',
