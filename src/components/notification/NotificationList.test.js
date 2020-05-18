@@ -1,12 +1,12 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
-import { getDefinedLocale } from '@/i18n';
 import NotificationList from './NotificationList.vue';
 
 jest.mock('@/i18n', () => ({
   t: jest.fn((str) => str),
-  getDefinedLocale: jest.fn().mockImplementation(() => 'pt-BR'),
 }));
+
+const $t = jest.fn().mockImplementation((msg) => msg);
 
 console.error = jest.fn();
 
@@ -65,7 +65,7 @@ describe('components/notification/NotificationList', () => {
   const notification = {
     namespaced: true,
     getters: {
-      notifications: () => notifications,
+      notifications: jest.fn(() => notifications),
     },
     actions: {
       getNotifications: jest.fn()
@@ -81,7 +81,7 @@ describe('components/notification/NotificationList', () => {
     describe('and there is notifications', () => {
       beforeAll(() => {
         const store = new Vuex.Store({ modules: { notification } });
-        wrapper = shallowMount(NotificationList, { store, localVue });
+        wrapper = shallowMount(NotificationList, { store, localVue, mocks: { $t } });
       });
 
       afterAll(() => {
@@ -95,9 +95,9 @@ describe('components/notification/NotificationList', () => {
 
     describe('and there is no notifications', () => {
       beforeAll(() => {
-        notification.getters.notifications = jest.fn().mockImplementationOnce(() => []);
+        notification.getters.notifications.mockImplementationOnce(() => []);
         const store = new Vuex.Store({ modules: { notification } });
-        wrapper = shallowMount(NotificationList, { store, localVue });
+        wrapper = shallowMount(NotificationList, { store, localVue, mocks: { $t } });
       });
 
       afterAll(() => {
@@ -108,58 +108,62 @@ describe('components/notification/NotificationList', () => {
         expect(wrapper.element).toMatchSnapshot();
       });
     });
-  });
 
-  describe('when getNotifications fails', () => {
-    const mockError = 'mockError';
+    describe('and there occurs an error while trying to retrieve the notifications', () => {
+      const mockError = 'mockError';
 
-    beforeAll(() => {
-      notification.actions.getNotifications = jest.fn()
-        .mockImplementationOnce(() => Promise.reject(mockError));
-      const store = new Vuex.Store({ modules: { notification } });
-      wrapper = shallowMount(NotificationList, { store, localVue });
-    });
+      beforeAll(() => {
+        notification.getters.notifications.mockImplementationOnce(() => []);
+        notification.actions.getNotifications
+          .mockImplementationOnce(() => Promise.reject(mockError));
+        const store = new Vuex.Store({ modules: { notification } });
+        wrapper = shallowMount(NotificationList, { store, localVue, mocks: { $t } });
+      });
 
-    afterAll(() => {
-      wrapper.destroy();
-    });
+      afterAll(() => {
+        wrapper.destroy();
+      });
 
-    it('should log the error on the console', () => {
-      expect(console.error).toHaveBeenCalledWith(mockError);
+      it('should render html correctly', () => {
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
+      it('should log the error on the console', () => {
+        expect(console.error).toHaveBeenCalledWith(mockError);
+      });
     });
   });
 
   describe('computed', () => {
-    describe('locale', () => {
-      describe('when locale is pt-BR', () => {
+    describe('emptyNotifications', () => {
+      describe('when there is no notification', () => {
         beforeAll(() => {
+          notification.getters.notifications.mockImplementationOnce(() => []);
           const store = new Vuex.Store({ modules: { notification } });
-          wrapper = shallowMount(NotificationList, { store, localVue });
+          wrapper = shallowMount(NotificationList, { store, localVue, mocks: { $t } });
         });
 
         afterAll(() => {
           wrapper.destroy();
         });
 
-        it('should return ptBR', () => {
-          expect(wrapper.vm.locale).toEqual('ptBR');
+        it('should return true', () => {
+          expect(wrapper.vm.emptyNotifications).toBeTruthy();
         });
       });
 
-      describe('when is different from pt-BR', () => {
-        const locale = 'en';
-
+      describe('when there is notifications', () => {
         beforeAll(() => {
-          getDefinedLocale.mockImplementationOnce(() => locale);
           const store = new Vuex.Store({ modules: { notification } });
-          wrapper = shallowMount(NotificationList, { store, localVue });
+          wrapper = shallowMount(NotificationList, { store, localVue, mocks: { $t } });
         });
 
         afterAll(() => {
           wrapper.destroy();
         });
-        it('should return the defined locale', () => {
-          expect(wrapper.vm.locale).toEqual(locale);
+
+        it('should return false', () => {
+          expect(wrapper.vm.emptyNotifications).toBeFalsy();
         });
       });
     });
