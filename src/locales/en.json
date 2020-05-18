@@ -1,1 +1,6 @@
-{}
+{
+  "notifications": {
+    "noNotifications": "There are no new notifications.",
+    "unableLoad": "We were unable to load notifications at this time."
+  }
+}

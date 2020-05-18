@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/notification/NotificationError when components is mounted should renders html correctly 1`] = `
+<li
+  class="drop__item drop__item--notifications"
+>
+  <div
+    class="error-container"
+  >
+    <span
+      class="error-message"
+    >
+      test error message
+    </span>
+     
+    <a
+      class="notifications-refresh-btn"
+      href="javascript:"
+    >
+      <i
+        class="fa fa-refresh"
+      />
+    </a>
+  </div>
+</li>
+`;

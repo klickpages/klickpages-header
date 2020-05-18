@@ -3,66 +3,36 @@
 exports[`components/notification/NotificationList when components is mounted and there is no notifications should render html correctly 1`] = `
 <ul
   class="drop__list drop__list--notifications dropdown-menu"
-/>
+>
+   
+  <notification-error-stub
+    errormessage="notifications.noNotifications"
+  />
+</ul>
 `;
 
 exports[`components/notification/NotificationList when components is mounted and there is notifications should render html correctly 1`] = `
 <ul
   class="drop__list drop__list--notifications dropdown-menu"
 >
-  <li
-    class="drop__item drop__item--notifications"
-  >
-    <span
-      class="date"
-    >
-      12/05/2020
-    </span>
-     
-    <span
-      class="title"
-    >
-      Teste
-    </span>
-     
-    <p>
-      notificacao de teste
-    </p>
-     
-    <a
-      href=""
-      target="_blank"
-    >
-      
-    
-    </a>
-  </li>
-  <li
-    class="drop__item drop__item--notifications"
-  >
-    <span
-      class="date"
-    >
-      12/05/2020
-    </span>
-     
-    <span
-      class="title"
-    >
-      Teste com Link
-    </span>
-     
-    <p>
-      notificacao de teste com Link
-    </p>
-     
-    <a
-      href="https://jwt.io/introduction/"
-      target="_blank"
-    >
-      json.io
-    
-    </a>
-  </li>
+  <notification-item-stub
+    notification="[object Object]"
+  />
+  <notification-item-stub
+    notification="[object Object]"
+  />
+   
+  <!---->
+</ul>
+`;
+
+exports[`components/notification/NotificationList when components is mounted and there occurs an error while trying to retrieve the notifications should render html correctly 1`] = `
+<ul
+  class="drop__list drop__list--notifications dropdown-menu"
+>
+   
+  <notification-error-stub
+    errormessage="notifications.unableLoad"
+  />
 </ul>
 `;

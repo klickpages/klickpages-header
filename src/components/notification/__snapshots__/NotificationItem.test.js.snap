@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/notification/NotificationItem when component is mounted should renders html correctly 1`] = `
+<li
+  class="drop__item drop__item--notifications"
+>
+  <span
+    class="date"
+  >
+    12/05/2020
+  </span>
+   
+  <span
+    class="title"
+  >
+    Teste
+  </span>
+   
+  <p>
+    notificacao de teste
+  </p>
+   
+  <a
+    href=""
+    target="_blank"
+  >
+    
+  
+  </a>
+</li>
+`;

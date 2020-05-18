@@ -1,43 +1,82 @@
 <template>
   <ul class="drop__list drop__list--notifications dropdown-menu">
-    <li
-      class="drop__item drop__item--notifications"
+    <notification-item
       v-for="notification in notifications"
       :key="`${notification.id}`"
-    >
-      <span class="date">{{notification.created_at}}</span>
-      <span class="title">{{notification.data[locale].title}}</span>
-      <p>{{notification.data[locale].description}}</p>
-      <a
-        :href="notification.data[locale].link"
-        target="_blank">{{notification.data[locale].linkText}}
-      </a>
-    </li>
+      :notification="notification"
+    />
+    <notification-error
+      v-if="showNotificationError"
+      @refreshNotifications="refreshNotifications"
+      :errorMessage="errorMessage"
+    />
   </ul>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import { getDefinedLocale } from '../../i18n/index';
+
+import NotificationItem from './NotificationItem.vue';
+import NotificationError from './NotificationError.vue';
+
+const notificationStatus = {
+  success: 'success',
+  empty: 'empty',
+  error: 'error',
+};
 
 export default {
+  data() {
+    return {
+      currentNotificationsStatus: notificationStatus.empty,
+    };
+  },
   computed: {
     ...mapGetters({
       notifications: 'notification/notifications',
     }),
-    locale() {
-      const definedLocale = getDefinedLocale();
-      return definedLocale === 'pt-BR' ? 'ptBR' : definedLocale;
+    emptyNotifications() {
+      return this.notifications.length === 0;
+    },
+    showNotificationError() {
+      return this.currentNotificationsStatus === notificationStatus.empty
+        || this.currentNotificationsStatus === notificationStatus.error;
+    },
+    errorMessage() {
+      if (this.currentNotificationsStatus === notificationStatus.empty) {
+        return this.$t('notifications.noNotifications');
+      }
+
+      if (this.currentNotificationsStatus === notificationStatus.error) {
+        return this.$t('notifications.unableLoad');
+      }
+
+      return '';
     },
   },
-  methods: mapActions({
-    getNotifications: 'notification/getNotifications',
-  }),
-  async mounted() {
-    await this.getNotifications()
-      .catch((error) => {
+  components: {
+    NotificationItem,
+    NotificationError,
+  },
+  methods: {
+    ...mapActions({
+      getNotifications: 'notification/getNotifications',
+    }),
+    async refreshNotifications() {
+      try {
+        await this.getNotifications();
+
+        this.currentNotificationsStatus = this.emptyNotifications
+          ? notificationStatus.empty
+          : notificationStatus.success;
+      } catch (error) {
         console.error(error);
-      });
+        this.currentNotificationsStatus = notificationStatus.error;
+      }
+    },
+  },
+  async mounted() {
+    await this.refreshNotifications();
   },
 };
 </script>
