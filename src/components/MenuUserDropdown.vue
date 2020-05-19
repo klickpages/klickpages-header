@@ -1,8 +1,8 @@
 <template>
 <div class="dropdown menu-user">
   <a href="javascript:;" class="kp-user dropdown-toggle clearfix" data-toggle="dropdown">
-    <span class="btn-user">{{topBarConfig.user.name[0]}}</span>
-    <span class="user__text">{{topBarConfig.user.name}}</span>
+    <span class="btn-user">{{user.name[0]}}</span>
+    <span class="user__text">{{user.name}}</span>
     <span class="btn">
       <i class="fa fa-angle-down"></i>
     </span>
@@ -39,6 +39,7 @@ import LogoutIcon from './icons/Logout.vue';
 export default {
   computed: mapGetters({
     topBarConfig: 'topBar/config',
+    user: 'topBar/user',
   }),
   components: {
     DomainIcon,

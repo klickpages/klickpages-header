@@ -1,14 +1,16 @@
-import TopBarRequest from '../../../services/klickartRequest/topBar';
+import TopBarRequest from '../../../services/api/klickart/topBar';
 import types from './types';
 
 const actions = {};
 
-actions.getConfig = ({ commit }, klickartUrl) => {
-  const topBarRequest = new TopBarRequest({ klickartUrl });
+actions.getConfig = ({ commit }) => {
+  const topBarRequest = new TopBarRequest();
   return topBarRequest
     .get()
     .then(({ data }) => {
-      commit(types.SET_CONFIG, data);
+      const { user, ...config } = data;
+      commit(types.SET_CONFIG, config);
+      commit(types.SET_USER, user);
     });
 };
 export default actions;

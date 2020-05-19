@@ -1,5 +1,5 @@
 import MockAdapter from 'axios-mock-adapter';
-import TopBarRequest from '../../../services/klickartRequest/topBar';
+import TopBarRequest from '../../../services/klickart/topBar';
 import actions from './actions';
 import topBarConfigDataTemplate from '../../../helpers/dataTemplate';
 

@@ -22,6 +22,8 @@ import MenuUserDropdown from './MenuUserDropdown.vue';
 import MailServiceLink from './MailServiceLink.vue';
 import NotificationDropdown from './notification/NotificationDropdown.vue';
 
+import { setklickartURL } from '../config/klickart';
+
 export default {
   name: 'KlickpagesHeader',
   props: {
@@ -40,7 +42,8 @@ export default {
     getTopBarConfig: 'topBar/getConfig',
   }),
   mounted() {
-    this.getTopBarConfig(this.klickartUrl)
+    setklickartURL(this.klickartUrl);
+    this.getTopBarConfig()
       .catch((error) => {
         console.error(error);
       });
