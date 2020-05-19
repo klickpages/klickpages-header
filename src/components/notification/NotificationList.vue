@@ -34,6 +34,7 @@ export default {
   computed: {
     ...mapGetters({
       notifications: 'notification/notifications',
+      user: 'topBar/user',
     }),
     emptyNotifications() {
       return this.notifications.length === 0;
@@ -64,7 +65,7 @@ export default {
     }),
     async refreshNotifications() {
       try {
-        await this.getNotifications();
+        await this.getNotifications(this.user.id);
 
         this.currentNotificationsStatus = this.emptyNotifications
           ? notificationStatus.empty
