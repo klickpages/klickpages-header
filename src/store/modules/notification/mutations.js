@@ -3,11 +3,13 @@ import types from './types';
 
 const state = {
   notifications: [],
+  totalItems: 0,
 };
 
 const mutations = {
-  [types.SET_NOTIFICATIONS](state, notifications) {
-    state.notifications = notifications;
+  [types.SET_NOTIFICATIONS](state, notificationsData) {
+    state.notifications = notificationsData.notifications;
+    state.totalItems = notificationsData.total_items;
   },
 };
 

@@ -7,7 +7,7 @@ const configRequest = () => ({
 export default class Klickart {
   constructor(config = {}) {
     this.path = config.path;
-    this.axios = instance(config.klickartUrl);
+    this.axios = instance();
   }
 
   get(resource = '', config = {}) {

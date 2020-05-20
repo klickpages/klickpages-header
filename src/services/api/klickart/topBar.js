@@ -1,4 +1,4 @@
-import i18n from '../../i18n';
+import i18n from '../../../i18n';
 import Klickart from './index';
 
 export default class TopBar extends Klickart {

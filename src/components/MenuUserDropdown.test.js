@@ -7,9 +7,6 @@ describe('components/MenuUserDropdown.vue', () => {
   localVue.use(Vuex);
 
   const topBarConfig = {
-    user: {
-      name: 'Foo Bar',
-    },
     profile: {
       url: 'profile-url.com',
       title: 'profile',
@@ -21,6 +18,9 @@ describe('components/MenuUserDropdown.vue', () => {
     logout: {
       url: 'logout-url.com',
       title: 'logout',
+    },
+    user: {
+      name: 'Foo Bar',
     },
   };
 

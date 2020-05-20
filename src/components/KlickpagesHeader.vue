@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar" role="navigation">
+  <div class="navbar" role="navigation"  v-if="settingsLoaded">
     <menu-switch />
     <div class="container no-padding">
       <home-link />
@@ -22,10 +22,17 @@ import MenuUserDropdown from './MenuUserDropdown.vue';
 import MailServiceLink from './MailServiceLink.vue';
 import NotificationDropdown from './notification/NotificationDropdown.vue';
 
+import { setklickartURL } from '../config/klickart';
+
 export default {
   name: 'KlickpagesHeader',
   props: {
-    klickartUrl: String,
+    klickartURL: String,
+  },
+  data() {
+    return {
+      settingsLoaded: false,
+    };
   },
   components: {
     MenuSwitch,
@@ -39,11 +46,14 @@ export default {
   methods: mapActions({
     getTopBarConfig: 'topBar/getConfig',
   }),
-  mounted() {
-    this.getTopBarConfig(this.klickartUrl)
+  async mounted() {
+    setklickartURL(this.klickartURL);
+    await this.getTopBarConfig()
       .catch((error) => {
         console.error(error);
       });
+
+    this.settingsLoaded = true;
   },
 };
 </script>

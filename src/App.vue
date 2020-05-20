@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <klickpages-header :klickartUrl="klickartUrl"></klickpages-header>
+    <klickpages-header
+      :klickartURL="klickartURL"
+    />
   </div>
 </template>
 
@@ -12,7 +14,7 @@ export default {
   name: 'App',
   data() {
     return {
-      klickartUrl: 'https://art.klickpages.local',
+      klickartURL: 'https://art.klickpages.local',
     };
   },
   components: {

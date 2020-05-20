@@ -1,10 +1,14 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import KlickpagesHeader from './KlickpagesHeader.vue';
+import { setklickartURL } from '../config/klickart';
 
 global.console = { error: jest.fn() };
 jest.mock('@/i18n', () => ({
   t: jest.fn((str) => str),
+}));
+jest.mock('../config/klickart', () => ({
+  setklickartURL: jest.fn(),
 }));
 
 describe('components/KlickpagesHeader.vue', () => {
@@ -13,14 +17,14 @@ describe('components/KlickpagesHeader.vue', () => {
 
   let wrapper;
 
-  const klickartUrl = 'art.klickpages.com.br';
+  const klickartURL = 'art.klickpages.com.br';
 
   const topBar = {
     namespaced: true,
   };
 
   const propsData = {
-    klickartUrl,
+    klickartURL,
   };
 
   describe('when component is mounted', () => {
@@ -33,8 +37,18 @@ describe('components/KlickpagesHeader.vue', () => {
       wrapper = shallowMount(KlickpagesHeader, { propsData, localVue, store });
     });
 
-    it('should call getTopBarConfig action with the klickartUrl', () => {
-      expect(topBar.actions.getConfig).toHaveBeenCalledWith(expect.any(Object), klickartUrl);
+    afterAll(() => {
+      wrapper.destroy();
+      jest.clearAllMocks();
+    });
+
+    it('should call getTopBarConfig action', () => {
+      expect(topBar.actions.getConfig)
+        .toHaveBeenCalledWith(expect.any(Object), undefined);
+    });
+
+    it('should call setKlickartURL', () => {
+      expect(setklickartURL).toHaveBeenCalledWith(klickartURL);
     });
 
     describe('and getTopBarConfig action fails', () => {
@@ -51,11 +65,6 @@ describe('components/KlickpagesHeader.vue', () => {
       it('should call console.error with error', () => {
         expect(console.error).toHaveBeenCalledWith(error);
       });
-    });
-
-    afterAll(() => {
-      wrapper.destroy();
-      jest.clearAllMocks();
     });
   });
 });

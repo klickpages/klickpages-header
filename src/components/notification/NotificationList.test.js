@@ -167,5 +167,139 @@ describe('components/notification/NotificationList', () => {
         });
       });
     });
+
+    describe('showNotificationError', () => {
+      const dummyMethod = () => {};
+
+      describe('when currentNotificationStatus is equal to empty', () => {
+        beforeAll(() => {
+          const store = new Vuex.Store({ modules: { notification } });
+          wrapper = shallowMount(NotificationList, {
+            store,
+            localVue,
+            mocks: { $t },
+            methods: { refreshNotifications: dummyMethod },
+          });
+          wrapper.setData({ currentNotificationsStatus: 'empty' });
+        });
+
+        afterAll(() => {
+          wrapper.destroy();
+        });
+
+        it('should return true', () => {
+          expect(wrapper.vm.showNotificationError).toBeTruthy();
+        });
+      });
+
+      describe('when currentNotificationStatus is equal to error', () => {
+        beforeAll(() => {
+          const store = new Vuex.Store({ modules: { notification } });
+          wrapper = shallowMount(NotificationList, {
+            store,
+            localVue,
+            mocks: { $t },
+            methods: { refreshNotifications: dummyMethod },
+          });
+          wrapper.setData({ currentNotificationsStatus: 'error' });
+        });
+
+        afterAll(() => {
+          wrapper.destroy();
+        });
+
+        it('should return true', () => {
+          expect(wrapper.vm.showNotificationError).toBeTruthy();
+        });
+      });
+
+      describe('when currentNotificationStatus is equal to success', () => {
+        beforeAll(() => {
+          const store = new Vuex.Store({ modules: { notification } });
+          wrapper = shallowMount(NotificationList, {
+            store,
+            localVue,
+            mocks: { $t },
+            methods: { refreshNotifications: dummyMethod },
+          });
+          wrapper.setData({ currentNotificationsStatus: 'success' });
+        });
+
+        afterAll(() => {
+          wrapper.destroy();
+        });
+
+        it('should return false', () => {
+          expect(wrapper.vm.showNotificationError).toBeFalsy();
+        });
+      });
+    });
+
+    describe('errorMessage', () => {
+      const dummyMethod = () => {};
+
+      describe('when currentNotificationStatus is equal to empty', () => {
+        beforeAll(() => {
+          const store = new Vuex.Store({ modules: { notification } });
+          wrapper = shallowMount(NotificationList, {
+            store,
+            localVue,
+            mocks: { $t },
+            methods: { refreshNotifications: dummyMethod },
+          });
+          wrapper.setData({ currentNotificationsStatus: 'empty' });
+        });
+
+        afterAll(() => {
+          wrapper.destroy();
+        });
+
+        it('should return $t(\'notifications.noNotifications\')', () => {
+          expect(wrapper.vm.errorMessage).toEqual($t('notifications.noNotifications'));
+        });
+      });
+
+      describe('when currentNotificationStatus is equal to error', () => {
+        beforeAll(() => {
+          const store = new Vuex.Store({ modules: { notification } });
+          wrapper = shallowMount(NotificationList, {
+            store,
+            localVue,
+            mocks: { $t },
+            methods: { refreshNotifications: dummyMethod },
+          });
+          wrapper.setData({ currentNotificationsStatus: 'error' });
+        });
+
+        afterAll(() => {
+          wrapper.destroy();
+        });
+
+        it('should return $t(\'notifications.unableLoad\')', () => {
+          expect(wrapper.vm.errorMessage).toEqual($t('notifications.unableLoad'));
+        });
+      });
+
+      describe('when currentNotificationStatus is neither error or empty', () => {
+        beforeAll(() => {
+          const store = new Vuex.Store({ modules: { notification } });
+          wrapper = shallowMount(NotificationList, {
+            store,
+            localVue,
+            mocks: { $t },
+            methods: { refreshNotifications: dummyMethod },
+          });
+          wrapper.setData({ currentNotificationsStatus: 'success' });
+        });
+
+        afterAll(() => {
+          wrapper.destroy();
+        });
+
+        it('should return an empty string', () => {
+          expect(wrapper.vm.errorMessage).toEqual('');
+        });
+      });
+    });
   });
 });
