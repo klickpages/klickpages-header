@@ -2,7 +2,6 @@
   <div id="app">
     <klickpages-header
       :klickartURL="klickartURL"
-      :klicknotificationURL="klicknotificationURL"
     />
   </div>
 </template>
@@ -16,7 +15,6 @@ export default {
   data() {
     return {
       klickartURL: 'https://art.klickpages.local',
-      klicknotificationURL: 'https://notification-delivery.kpages.com.br',
     };
   },
   components: {

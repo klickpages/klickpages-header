@@ -8,9 +8,7 @@ actions.getConfig = ({ commit }) => {
   return topBarRequest
     .get()
     .then(({ data }) => {
-      const { user, ...config } = data;
-      commit(types.SET_CONFIG, config);
-      commit(types.SET_USER, user);
+      commit(types.SET_CONFIG, data);
     });
 };
 export default actions;

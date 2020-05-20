@@ -8,16 +8,18 @@ axios.create.mockReturnValue({
     },
   },
 });
-
+const mockURL = 'klkickartURL';
 jest.mock('axios');
+jest.mock('../../../config/klickart', () => ({
+  getklickartURL: () => mockURL,
+}));
 
 describe('services/api/klickart/request/instance', () => {
   let expectedConfig;
 
   describe('When instance doesn`t have an instance variable setted', () => {
-    const klickartUrl = 'mockUrl';
     beforeAll(() => {
-      Instance(klickartUrl);
+      Instance();
     });
 
     afterAll(() => {
@@ -25,9 +27,25 @@ describe('services/api/klickart/request/instance', () => {
     });
 
     it('should call axios.create', () => {
-      expectedConfig = { baseURL: klickartUrl };
+      expectedConfig = { baseURL: mockURL };
 
       expect(axios.create).toHaveBeenCalledWith(expectedConfig);
+    });
+  });
+
+  describe('When instance have an instance variable setted', () => {
+    let firstInstance;
+
+    beforeAll(() => {
+      firstInstance = Instance();
+    });
+
+    afterAll(() => {
+      jest.clearAllMocks();
+    });
+
+    it('should return the first instance', () => {
+      expect(Instance()).toEqual(firstInstance);
     });
   });
 });

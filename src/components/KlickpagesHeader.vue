@@ -23,13 +23,11 @@ import MailServiceLink from './MailServiceLink.vue';
 import NotificationDropdown from './notification/NotificationDropdown.vue';
 
 import { setklickartURL } from '../config/klickart';
-import { setKlicknotificationURL } from '../config/klicknotification';
 
 export default {
   name: 'KlickpagesHeader',
   props: {
     klickartURL: String,
-    klicknotificationURL: String,
   },
   data() {
     return {
@@ -50,7 +48,6 @@ export default {
   }),
   async mounted() {
     setklickartURL(this.klickartURL);
-    setKlicknotificationURL(this.klicknotificationURL);
     await this.getTopBarConfig()
       .catch((error) => {
         console.error(error);
