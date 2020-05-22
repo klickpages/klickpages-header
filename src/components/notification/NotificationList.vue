@@ -26,6 +26,9 @@ const notificationStatus = {
 };
 
 export default {
+  props: {
+    notificationsOpen: Boolean,
+  },
   data() {
     return {
       currentNotificationsStatus: notificationStatus.empty,
@@ -58,9 +61,19 @@ export default {
     NotificationItem,
     NotificationError,
   },
+  watch: {
+    async notificationsOpen(newValue) {
+      if (!newValue) {
+        return;
+      }
+
+      await this.sendReadNotification();
+    },
+  },
   methods: {
     ...mapActions({
       getNotifications: 'notification/getNotifications',
+      readNotifications: 'notification/readNotifications',
     }),
     async refreshNotifications() {
       try {
@@ -73,6 +86,9 @@ export default {
         console.error(error);
         this.currentNotificationsStatus = notificationStatus.error;
       }
+    },
+    async sendReadNotification() {
+      await this.readNotifications(this.notifications);
     },
   },
   async mounted() {

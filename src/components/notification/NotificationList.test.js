@@ -70,6 +70,7 @@ describe('components/notification/NotificationList', () => {
     actions: {
       getNotifications: jest.fn()
         .mockImplementation(() => Promise.resolve()),
+      readNotifications: jest.fn(),
     },
   };
   const localVue = createLocalVue();
@@ -299,6 +300,78 @@ describe('components/notification/NotificationList', () => {
         it('should return an empty string', () => {
           expect(wrapper.vm.errorMessage).toEqual('');
         });
+      });
+    });
+  });
+
+  describe('whatchers', () => {
+    describe('notificationsOpen', () => {
+      describe('when change value to false', () => {
+        beforeAll(() => {
+          const store = new Vuex.Store({ modules: { notification } });
+          wrapper = shallowMount(NotificationList, {
+            store,
+            localVue,
+            props: { notificationsOpen: true },
+            mocks: { $t },
+          });
+          jest.clearAllMocks();
+
+          wrapper.setProps({ notificationsOpen: false });
+        });
+
+        afterAll(() => {
+          wrapper.destroy();
+        });
+
+        it('should return without calling readNotifications', () => {
+          expect(notification.actions.readNotifications).not.toHaveBeenCalled();
+        });
+      });
+
+      describe('when newValue is true', () => {
+        beforeAll(() => {
+          const store = new Vuex.Store({ modules: { notification } });
+          wrapper = shallowMount(NotificationList, {
+            store,
+            localVue,
+            mocks: { $t },
+          });
+
+          wrapper.setProps({ notificationsOpen: true });
+        });
+
+        afterAll(() => {
+          wrapper.destroy();
+        });
+
+        it('should call readNotifications', () => {
+          expect(notification.actions.readNotifications).toHaveBeenCalled();
+        });
+      });
+    });
+  });
+
+  describe('methods', () => {
+    describe('sendReadNotification', () => {
+      beforeAll(() => {
+        const store = new Vuex.Store({ modules: { notification } });
+        wrapper = shallowMount(NotificationList, {
+          store,
+          localVue,
+          mocks: { $t },
+        });
+
+        wrapper.vm.sendReadNotification();
+      });
+
+      afterAll(() => {
+        wrapper.destroy();
+      });
+
+      it('should call readNotifications action with the notifications', () => {
+        expect(notification.actions.readNotifications)
+          .toHaveBeenCalledWith(expect.any(Object), notifications);
       });
     });
   });
