@@ -1,6 +1,6 @@
 <template>
   <li class="drop__item drop__item--notifications">
-    <span class="date">{{notification.created_at}}</span>
+    <span class="date">{{notificationDate}}</span>
     <span class="title">{{notification.data[locale].title}}</span>
     <p>{{notification.data[locale].description}}</p>
     <a
@@ -21,6 +21,10 @@ export default {
     locale() {
       const definedLocale = getDefinedLocale();
       return definedLocale === 'pt-BR' ? 'ptBR' : definedLocale;
+    },
+    notificationDate() {
+      const date = new Date(this.notification.created_at);
+      return date.toLocaleString(getDefinedLocale(), { timeStyle: 'short', dateStyle: 'full' });
     },
   },
 };

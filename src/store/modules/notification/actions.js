@@ -4,10 +4,10 @@ import types from './types';
 
 const actions = {};
 
-actions.getNotifications = ({ commit }) => {
+actions.getNotifications = ({ commit }, page) => {
   const notificationRequest = new Notifications();
   return notificationRequest
-    .get()
+    .get(`?page=${page}`)
     .then(({ data }) => {
       commit(types.SET_NOTIFICATIONS, data);
     });

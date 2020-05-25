@@ -72,7 +72,7 @@ describe('components/notification/NotificationItem', () => {
         const locale = 'en';
 
         beforeAll(() => {
-          getDefinedLocale.mockImplementationOnce(() => locale);
+          getDefinedLocale.mockImplementation(() => locale);
           wrapper = shallowMount(NotificationItem, { localVue, propsData });
         });
 

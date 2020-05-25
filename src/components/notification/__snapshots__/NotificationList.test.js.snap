@@ -1,19 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components/notification/NotificationList when components is mounted and there is no notifications should render html correctly 1`] = `
-<ul
+<vue-custom-scrollbar-stub
   class="drop__list drop__list--notifications dropdown-menu"
+  swicher="true"
+  tagname="ul"
 >
    
   <notification-error-stub
     errormessage="notifications.noNotifications"
   />
-</ul>
+</vue-custom-scrollbar-stub>
 `;
 
 exports[`components/notification/NotificationList when components is mounted and there is notifications should render html correctly 1`] = `
-<ul
+<vue-custom-scrollbar-stub
   class="drop__list drop__list--notifications dropdown-menu"
+  swicher="true"
+  tagname="ul"
 >
   <notification-item-stub
     notification="[object Object]"
@@ -23,16 +27,18 @@ exports[`components/notification/NotificationList when components is mounted and
   />
    
   <!---->
-</ul>
+</vue-custom-scrollbar-stub>
 `;
 
 exports[`components/notification/NotificationList when components is mounted and there occurs an error while trying to retrieve the notifications should render html correctly 1`] = `
-<ul
+<vue-custom-scrollbar-stub
   class="drop__list drop__list--notifications dropdown-menu"
+  swicher="true"
+  tagname="ul"
 >
    
   <notification-error-stub
     errormessage="notifications.unableLoad"
   />
-</ul>
+</vue-custom-scrollbar-stub>
 `;
