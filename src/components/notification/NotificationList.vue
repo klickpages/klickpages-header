@@ -1,7 +1,11 @@
 <template>
-  <ul class="drop__list drop__list--notifications dropdown-menu">
+  <vue-custom-scrollbar
+    class="drop__list drop__list--notifications dropdown-menu"
+    :tagname="'ul'"
+    @ps-y-reach-end="onInfiniteScroll"
+  >
     <notification-item
-      v-for="notification in notifications"
+      v-for="notification in notifications.items"
       :key="`${notification.id}`"
       :notification="notification"
     />
@@ -10,11 +14,12 @@
       @refreshNotifications="refreshNotifications"
       :errorMessage="errorMessage"
     />
-  </ul>
+  </vue-custom-scrollbar>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import VueCustomScrollbar from 'vue-custom-scrollbar';
 
 import NotificationItem from './NotificationItem.vue';
 import NotificationError from './NotificationError.vue';
@@ -25,6 +30,8 @@ const notificationStatus = {
   error: 'error',
 };
 
+const ITEMS_PER_PAGE = 5;
+
 export default {
   props: {
     notificationsOpen: Boolean,
@@ -32,6 +39,7 @@ export default {
   data() {
     return {
       currentNotificationsStatus: notificationStatus.empty,
+      currentPage: 1,
     };
   },
   computed: {
@@ -56,10 +64,17 @@ export default {
 
       return '';
     },
+    notificationsTotalPage() {
+      return Math.ceil((this.notifications.totalItems / ITEMS_PER_PAGE));
+    },
+    shouldLoadMoreNotifications() {
+      return this.currentPage < this.notificationsTotalPage;
+    },
   },
   components: {
     NotificationItem,
     NotificationError,
+    VueCustomScrollbar,
   },
   watch: {
     async notificationsOpen(newValue) {
@@ -77,7 +92,7 @@ export default {
     }),
     async refreshNotifications() {
       try {
-        await this.getNotifications();
+        await this.getNotifications(this.currentPage);
 
         this.currentNotificationsStatus = this.emptyNotifications
           ? notificationStatus.empty
@@ -88,7 +103,14 @@ export default {
       }
     },
     async sendReadNotification() {
-      await this.readNotifications(this.notifications);
+      await this.readNotifications(this.notifications.items);
+    },
+
+    async onInfiniteScroll() {
+      if (this.shouldLoadMoreNotifications) {
+        this.currentPage += 1;
+        await this.getNotifications(this.currentPage);
+      }
     },
   },
   async mounted() {

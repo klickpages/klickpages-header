@@ -38,9 +38,6 @@ jest.mock('../../../services/security/jwt/jwtToken', () => ({
 }));
 
 describe('scr/store/modules/notification/actions', () => {
-  // const notifications = new Notifications();
-  // const mockNotificationsRequest = new MockAdapter(notifications.axios);
-
   const commit = jest.fn();
 
 

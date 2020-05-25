@@ -2,7 +2,10 @@ import { mutations } from './mutations';
 
 describe('store/modules/notification/mutations', () => {
   const state = {
-    notifications: [],
+    notifications: {
+      items: [],
+      totalItems: 0,
+    },
   };
 
   const notificationsData = {
@@ -41,11 +44,11 @@ describe('store/modules/notification/mutations', () => {
     });
 
     it('should set notifications state with notifications', () => {
-      expect(state.notifications).toEqual(notificationsData.notifications);
+      expect(state.notifications.items).toEqual(notificationsData.notifications);
     });
 
     it('should set notifications state with notifications', () => {
-      expect(state.totalItems).toEqual(notificationsData.total_items);
+      expect(state.notifications.totalItems).toEqual(notificationsData.total_items);
     });
   });
 });
