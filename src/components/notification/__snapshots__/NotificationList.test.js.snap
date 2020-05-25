@@ -10,6 +10,8 @@ exports[`components/notification/NotificationList when components is mounted and
   <notification-error-stub
     errormessage="notifications.noNotifications"
   />
+   
+  <!---->
 </vue-custom-scrollbar-stub>
 `;
 
@@ -27,6 +29,8 @@ exports[`components/notification/NotificationList when components is mounted and
   />
    
   <!---->
+   
+  <!---->
 </vue-custom-scrollbar-stub>
 `;
 
@@ -40,5 +44,7 @@ exports[`components/notification/NotificationList when components is mounted and
   <notification-error-stub
     errormessage="notifications.unableLoad"
   />
+   
+  <!---->
 </vue-custom-scrollbar-stub>
 `;
