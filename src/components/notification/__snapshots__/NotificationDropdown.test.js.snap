@@ -38,6 +38,8 @@ exports[`components/notification/NotificationDropdown when component is mounted 
     <notification-icon-stub />
   </a>
    
-  <notification-list-stub />
+  <notification-list-stub
+    notificationsopen="true"
+  />
 </div>
 `;

@@ -9,7 +9,7 @@
     <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle">
       <notification-icon />
     </a>
-    <notification-list />
+    <notification-list :notificationsOpen="notificationsOpen"/>
   </div>
 </template>
 

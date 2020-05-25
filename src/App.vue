@@ -2,6 +2,7 @@
   <div id="app">
     <klickpages-header
       :klickartURL="klickartURL"
+      :jwtSecret="jwtSecret"
     />
   </div>
 </template>
@@ -15,6 +16,7 @@ export default {
   data() {
     return {
       klickartURL: 'https://art.klickpages.local',
+      jwtSecret: '986392d822a953640a12c03aa3dc6799',
     };
   },
   components: {

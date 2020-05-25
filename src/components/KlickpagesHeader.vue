@@ -23,11 +23,13 @@ import MailServiceLink from './MailServiceLink.vue';
 import NotificationDropdown from './notification/NotificationDropdown.vue';
 
 import { setklickartURL } from '../config/klickart';
+import { setJWTSecret } from '../config/jwt';
 
 export default {
   name: 'KlickpagesHeader',
   props: {
     klickartURL: String,
+    jwtSecret: String,
   },
   data() {
     return {
@@ -48,6 +50,7 @@ export default {
   }),
   async mounted() {
     setklickartURL(this.klickartURL);
+    setJWTSecret(this.jwtSecret);
     await this.getTopBarConfig()
       .catch((error) => {
         console.error(error);
