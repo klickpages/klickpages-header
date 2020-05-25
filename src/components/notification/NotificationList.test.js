@@ -170,6 +170,25 @@ describe('components/notification/NotificationList', () => {
     });
 
     describe('showNotificationError', () => {
+      describe('when isLoading is true', () => {
+        beforeAll(() => {
+          const store = new Vuex.Store({ modules: { notification } });
+          wrapper = shallowMount(NotificationList, {
+            store,
+            localVue,
+            mocks: { $t },
+          });
+          wrapper.setData({ isLoading: true });
+        });
+
+        afterAll(() => {
+          wrapper.destroy();
+        });
+
+        it('should return false', () => {
+          expect(wrapper.vm.showNotificationError).toBeFalsy();
+        });
+      });
       const dummyMethod = () => {};
 
       describe('when currentNotificationStatus is equal to empty', () => {
@@ -443,7 +462,7 @@ describe('components/notification/NotificationList', () => {
     });
 
     describe('onInfiniteScroll', () => {
-      describe('when shouldLoadMoreNotifications is truthy', () => {
+      describe('when shouldLoadMoreNotifications is truthy and isLoading is false', () => {
         let initialCurrentPage;
 
         beforeAll(() => {
@@ -457,6 +476,7 @@ describe('components/notification/NotificationList', () => {
             },
           });
           initialCurrentPage = wrapper.vm.$data.currentPage;
+          wrapper.setData({ isLoading: false });
 
           wrapper.vm.onInfiniteScroll();
         });
@@ -490,6 +510,37 @@ describe('components/notification/NotificationList', () => {
           });
           initialCurrentPage = wrapper.vm.$data.currentPage;
           jest.clearAllMocks();
+
+          wrapper.vm.onInfiniteScroll();
+        });
+
+        afterAll(() => {
+          wrapper.destroy();
+        });
+
+        it('should not add 1 to the currentPage', () => {
+          expect(wrapper.vm.$data.currentPage).toEqual(initialCurrentPage);
+        });
+
+        it('should not call getNotifications', () => {
+          expect(notification.actions.getNotifications).not.toHaveBeenCalled();
+        });
+      });
+
+      describe('when isLoading is true', () => {
+        let initialCurrentPage;
+
+        beforeAll(() => {
+          const store = new Vuex.Store({ modules: { notification } });
+          wrapper = shallowMount(NotificationList, {
+            store,
+            localVue,
+            mocks: { $t },
+
+          });
+          initialCurrentPage = wrapper.vm.$data.currentPage;
+          jest.clearAllMocks();
+          wrapper.setData({ isLoading: true });
 
           wrapper.vm.onInfiniteScroll();
         });

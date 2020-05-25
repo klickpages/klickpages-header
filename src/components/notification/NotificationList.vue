@@ -14,6 +14,7 @@
       @refreshNotifications="refreshNotifications"
       :errorMessage="errorMessage"
     />
+    <loader v-if="isLoading" />
   </vue-custom-scrollbar>
 </template>
 
@@ -23,6 +24,7 @@ import VueCustomScrollbar from 'vue-custom-scrollbar';
 
 import NotificationItem from './NotificationItem.vue';
 import NotificationError from './NotificationError.vue';
+import Loader from './Loader.vue';
 
 const notificationStatus = {
   success: 'success',
@@ -40,6 +42,7 @@ export default {
     return {
       currentNotificationsStatus: notificationStatus.empty,
       currentPage: 1,
+      isLoading: false,
     };
   },
   computed: {
@@ -50,6 +53,10 @@ export default {
       return this.notifications.length === 0;
     },
     showNotificationError() {
+      if (this.isLoading) {
+        return false;
+      }
+
       return this.currentNotificationsStatus === notificationStatus.empty
         || this.currentNotificationsStatus === notificationStatus.error;
     },
@@ -75,6 +82,7 @@ export default {
     NotificationItem,
     NotificationError,
     VueCustomScrollbar,
+    Loader,
   },
   watch: {
     async notificationsOpen(newValue) {
@@ -92,14 +100,16 @@ export default {
     }),
     async refreshNotifications() {
       try {
+        this.isLoading = true;
         await this.getNotifications(this.currentPage);
-
         this.currentNotificationsStatus = this.emptyNotifications
           ? notificationStatus.empty
           : notificationStatus.success;
       } catch (error) {
         console.error(error);
         this.currentNotificationsStatus = notificationStatus.error;
+      } finally {
+        this.isLoading = false;
       }
     },
     async sendReadNotification() {
@@ -107,9 +117,9 @@ export default {
     },
 
     async onInfiniteScroll() {
-      if (this.shouldLoadMoreNotifications) {
+      if (this.shouldLoadMoreNotifications && !this.isLoading) {
         this.currentPage += 1;
-        await this.getNotifications(this.currentPage);
+        await this.refreshNotifications();
       }
     },
   },
