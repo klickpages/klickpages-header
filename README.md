@@ -52,4 +52,5 @@ export default {};
 
 | prop        | description                               | required | default |
 |-------------|-------------------------------------------|----------|---------|
-| klickartUrl | klickart url according to the environment | yes      | null    |
+| klickartURL | klickart url according to the environment | yes      | null    |
+| jwtSecret   | secret shared with klickart               | yes      | null    |
