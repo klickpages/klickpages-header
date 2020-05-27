@@ -459,6 +459,10 @@ describe('components/notification/NotificationList', () => {
         expect(notification.actions.readNotifications)
           .toHaveBeenCalledWith(expect.any(Object), notifications);
       });
+
+      it('should emit notificationsReaded event', () => {
+        expect(wrapper.emitted().notificationsReaded).toBeTruthy();
+      });
     });
 
     describe('onInfiniteScroll', () => {
@@ -492,6 +496,20 @@ describe('components/notification/NotificationList', () => {
         it('should call getNotifications with the correct params', () => {
           expect(notification.actions.getNotifications)
             .lastCalledWith(expect.any(Object), initialCurrentPage + 1);
+        });
+
+        describe('and notificationsOpen data is true', () => {
+          let spy;
+
+          beforeAll(() => {
+            wrapper.setData({ notificationsOpen: true });
+            spy = jest.spyOn(wrapper.vm, 'sendReadNotification');
+            wrapper.vm.onInfiniteScroll();
+          });
+
+          it('should call sendReadNotification', () => {
+            expect(spy).toHaveBeenCalled();
+          });
         });
       });
 

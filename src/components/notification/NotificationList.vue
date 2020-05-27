@@ -101,6 +101,7 @@ export default {
     async refreshNotifications() {
       try {
         this.isLoading = true;
+
         await this.getNotifications(this.currentPage);
         this.currentNotificationsStatus = this.emptyNotifications
           ? notificationStatus.empty
@@ -114,12 +115,16 @@ export default {
     },
     async sendReadNotification() {
       await this.readNotifications(this.notifications.items);
+      this.$emit('notificationsReaded');
     },
-
     async onInfiniteScroll() {
       if (this.shouldLoadMoreNotifications && !this.isLoading) {
         this.currentPage += 1;
         await this.refreshNotifications();
+
+        if (this.notificationsOpen) {
+          this.sendReadNotification();
+        }
       }
     },
   },
