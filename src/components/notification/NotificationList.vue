@@ -3,6 +3,7 @@
     class="drop__list drop__list--notifications dropdown-menu"
     :tagname="'ul'"
     @ps-y-reach-end="onInfiniteScroll"
+    v-if="mounted"
   >
     <notification-item
       v-for="notification in notifications.items"
@@ -43,6 +44,7 @@ export default {
       currentNotificationsStatus: notificationStatus.empty,
       currentPage: 1,
       isLoading: false,
+      mounted: false,
     };
   },
   computed: {
@@ -123,13 +125,14 @@ export default {
         await this.refreshNotifications();
 
         if (this.notificationsOpen) {
-          this.sendReadNotification();
+          await this.sendReadNotification();
         }
       }
     },
   },
   async mounted() {
     await this.refreshNotifications();
+    this.mounted = true;
   },
 };
 </script>
