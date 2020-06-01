@@ -37474,12 +37474,12 @@ var Notification_component = normalizeComponent(
 )
 
 /* harmony default export */ var Notification = (Notification_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7ff2bf82-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/notification/NotificationList.vue?vue&type=template&id=5452a82a&
-var NotificationListvue_type_template_id_5452a82a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('vue-custom-scrollbar',{staticClass:"drop__list drop__list--notifications dropdown-menu",attrs:{"tagname":'ul'},on:{"ps-y-reach-end":_vm.onInfiniteScroll}},[_vm._l((_vm.notifications.items),function(notification){return _c('notification-item',{key:("" + (notification.id)),attrs:{"notification":notification}})}),(_vm.showNotificationError)?_c('notification-error',{attrs:{"errorMessage":_vm.errorMessage},on:{"refreshNotifications":_vm.refreshNotifications}}):_vm._e(),(_vm.isLoading)?_c('loader'):_vm._e()],2)}
-var NotificationListvue_type_template_id_5452a82a_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7ff2bf82-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/notification/NotificationList.vue?vue&type=template&id=56f89efd&
+var NotificationListvue_type_template_id_56f89efd_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.mounted)?_c('vue-custom-scrollbar',{staticClass:"drop__list drop__list--notifications dropdown-menu",attrs:{"tagname":'ul'},on:{"ps-y-reach-end":_vm.onInfiniteScroll}},[_vm._l((_vm.notifications.items),function(notification){return _c('notification-item',{key:("" + (notification.id)),attrs:{"notification":notification}})}),(_vm.showNotificationError)?_c('notification-error',{attrs:{"errorMessage":_vm.errorMessage},on:{"refreshNotifications":_vm.refreshNotifications}}):_vm._e(),(_vm.isLoading)?_c('loader'):_vm._e()],2):_vm._e()}
+var NotificationListvue_type_template_id_56f89efd_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/notification/NotificationList.vue?vue&type=template&id=5452a82a&
+// CONCATENATED MODULE: ./src/components/notification/NotificationList.vue?vue&type=template&id=56f89efd&
 
 // EXTERNAL MODULE: ./node_modules/vue-custom-scrollbar/dist/vueScrollbar.umd.min.js
 var vueScrollbar_umd_min = __webpack_require__("4b70");
@@ -39656,6 +39656,7 @@ var Loader_component = normalizeComponent(
 //
 //
 //
+//
 
 
 
@@ -39675,14 +39676,15 @@ var ITEMS_PER_PAGE = 5;
     return {
       currentNotificationsStatus: notificationStatus.empty,
       currentPage: 1,
-      isLoading: false
+      isLoading: false,
+      mounted: false
     };
   },
   computed: _objectSpread2({}, Object(vuex_esm["b" /* mapGetters */])({
     notifications: 'notification/notifications'
   }), {
     emptyNotifications: function emptyNotifications() {
-      return this.notifications.length === 0;
+      return this.notifications.items.length === 0;
     },
     showNotificationError: function showNotificationError() {
       if (this.isLoading) {
@@ -39824,7 +39826,7 @@ var ITEMS_PER_PAGE = 5;
             switch (_context4.prev = _context4.next) {
               case 0:
                 if (!(_this4.shouldLoadMoreNotifications && !_this4.isLoading)) {
-                  _context4.next = 5;
+                  _context4.next = 7;
                   break;
                 }
 
@@ -39833,11 +39835,15 @@ var ITEMS_PER_PAGE = 5;
                 return _this4.refreshNotifications();
 
               case 4:
-                if (_this4.notificationsOpen) {
-                  _this4.sendReadNotification();
+                if (!_this4.notificationsOpen) {
+                  _context4.next = 7;
+                  break;
                 }
 
-              case 5:
+                _context4.next = 7;
+                return _this4.sendReadNotification();
+
+              case 7:
               case "end":
                 return _context4.stop();
             }
@@ -39860,6 +39866,9 @@ var ITEMS_PER_PAGE = 5;
               return _this5.refreshNotifications();
 
             case 2:
+              _this5.mounted = true;
+
+            case 3:
             case "end":
               return _context5.stop();
           }
@@ -39880,8 +39889,8 @@ var ITEMS_PER_PAGE = 5;
 
 var NotificationList_component = normalizeComponent(
   notification_NotificationListvue_type_script_lang_js_,
-  NotificationListvue_type_template_id_5452a82a_render,
-  NotificationListvue_type_template_id_5452a82a_staticRenderFns,
+  NotificationListvue_type_template_id_56f89efd_render,
+  NotificationListvue_type_template_id_56f89efd_staticRenderFns,
   false,
   null,
   null,

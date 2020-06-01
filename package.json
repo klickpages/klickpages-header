@@ -1,6 +1,6 @@
 {
   "name": "@klicksite/klickpages-header",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "private": false,
   "description": "A Vue component for klick applications to get the klickpages header",
   "author": "Klickpages <accounts@klickpages.com.br>",
