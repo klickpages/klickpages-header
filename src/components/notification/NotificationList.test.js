@@ -139,7 +139,7 @@ describe('components/notification/NotificationList', () => {
     describe('emptyNotifications', () => {
       describe('when there is no notification', () => {
         beforeAll(() => {
-          notification.getters.notifications.mockImplementationOnce(() => []);
+          notification.getters.notifications.mockImplementationOnce(() => ({ items: [] }));
           const store = new Vuex.Store({ modules: { notification } });
           wrapper = shallowMount(NotificationList, { store, localVue, mocks: { $t } });
         });
