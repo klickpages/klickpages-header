@@ -52,7 +52,7 @@ export default {
       notifications: 'notification/notifications',
     }),
     emptyNotifications() {
-      return this.notifications.length === 0;
+      return this.notifications.items.length === 0;
     },
     showNotificationError() {
       if (this.isLoading) {

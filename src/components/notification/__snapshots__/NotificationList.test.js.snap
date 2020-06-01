@@ -8,7 +8,7 @@ exports[`components/notification/NotificationList when components is mounted and
 >
    
   <notification-error-stub
-    errormessage="notifications.noNotifications"
+    errormessage="notifications.unableLoad"
   />
    
   <!---->
