@@ -438,6 +438,10 @@
   }
 }
 
+.navbar.hotmart-pro {
+  top: 70px;
+}
+
 .menu--switch {
   padding: 10px 0;
   background: #fbfbfb;
@@ -468,6 +472,11 @@
     height: 12px;
   }
 }
+
+.menu--switch.hotmart-pro {
+  display: none;
+}
+
 /* Mobile */
 
 @media (max-width:991px) {
@@ -569,5 +578,9 @@
 }
 
 .pt--large {
-  padding-top: 86px;
+  padding-top: 54px;
+}
+
+.pt--large.hotmart-pro {
+  padding-top: 54px;
 }
