@@ -2,6 +2,7 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import KlickpagesHeader from './KlickpagesHeader.vue';
 import { setklickartURL } from '../config/klickart';
+import { setJWTSecret } from '../config/jwt';
 
 global.console = { error: jest.fn() };
 jest.mock('@/i18n', () => ({
@@ -9,6 +10,9 @@ jest.mock('@/i18n', () => ({
 }));
 jest.mock('../config/klickart', () => ({
   setklickartURL: jest.fn(),
+}));
+jest.mock('../config/jwt', () => ({
+  setJWTSecret: jest.fn(),
 }));
 
 describe('components/KlickpagesHeader.vue', () => {
@@ -18,6 +22,7 @@ describe('components/KlickpagesHeader.vue', () => {
   let wrapper;
 
   const klickartURL = 'art.klickpages.com.br';
+  const jwtSecret = '986392d822a953640a12c03aa3dc6799';
 
   const topBar = {
     namespaced: true,
@@ -25,12 +30,21 @@ describe('components/KlickpagesHeader.vue', () => {
 
   const propsData = {
     klickartURL,
+    jwtSecret,
   };
 
   describe('when component is mounted', () => {
     beforeAll(() => {
       topBar.actions = {
         getConfig: jest.fn().mockImplementation(() => Promise.resolve()),
+      };
+
+      topBar.getters = {
+        config: () => ({
+          user: {
+            ucode: '132ccb93-82ba-4fdc-b626-e2944889acbc',
+          },
+        }),
       };
 
       const store = new Vuex.Store({ modules: { topBar } });
@@ -49,6 +63,14 @@ describe('components/KlickpagesHeader.vue', () => {
 
     it('should call setKlickartURL', () => {
       expect(setklickartURL).toHaveBeenCalledWith(klickartURL);
+    });
+
+    it('should call setJWTSecret', () => {
+      expect(setJWTSecret).toHaveBeenCalledWith(jwtSecret);
+    });
+
+    it('should contains hotmart-pro class', () => {
+      expect(wrapper.contains('.hotmart-pro')).toBe(true);
     });
 
     describe('and getTopBarConfig action fails', () => {

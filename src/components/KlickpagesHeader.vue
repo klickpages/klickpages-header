@@ -1,6 +1,10 @@
 <template>
-  <div class="navbar" role="navigation"  v-if="settingsLoaded">
-    <menu-switch />
+  <div
+    class="navbar"
+    :class="{'hotmart-pro': isHotmartPro}"
+    role="navigation"
+    v-if="settingsLoaded">
+    <menu-switch :class="{'hotmart-pro': isHotmartPro}" />
     <div class="container no-padding">
       <home-link />
       <locale-dropdown />
@@ -13,7 +17,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import MenuSwitch from './MenuSwitch.vue';
 import HomeLink from './HomeLink.vue';
 import LocaleDropdown from './LocaleDropdown.vue';
@@ -34,6 +38,7 @@ export default {
   data() {
     return {
       settingsLoaded: false,
+      isHotmartPro: false,
     };
   },
   components: {
@@ -48,6 +53,9 @@ export default {
   methods: mapActions({
     getTopBarConfig: 'topBar/getConfig',
   }),
+  computed: mapGetters({
+    topBarConfig: 'topBar/config',
+  }),
   async mounted() {
     setklickartURL(this.klickartURL);
     setJWTSecret(this.jwtSecret);
@@ -56,6 +64,9 @@ export default {
         console.error(error);
       });
 
+    if (this.topBarConfig.user.ucode) {
+      this.isHotmartPro = true;
+    }
     this.settingsLoaded = true;
   },
 };
