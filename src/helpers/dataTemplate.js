@@ -60,5 +60,6 @@ export default {
   },
   user: {
     name: '',
+    ucode: '',
   },
 };
