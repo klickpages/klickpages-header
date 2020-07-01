@@ -39,7 +39,7 @@ You must have an account at NPM to run the following command and enter your cred
 Just confirm that you are right:
 ``` npm whoami ```
 
-Update package.json version:
+Update the version in package.json and after, run:
 ``` npm publish --access public ```
 
 Any questions, contact the team :)
