@@ -23,6 +23,7 @@ describe('components/KlickpagesHeader.vue', () => {
 
   const klickartURL = 'art.klickpages.com.br';
   const jwtSecret = '986392d822a953640a12c03aa3dc6799';
+  const hotmartURL = 'hotmarturl.com.br';
 
   const topBar = {
     namespaced: true,
@@ -31,6 +32,7 @@ describe('components/KlickpagesHeader.vue', () => {
   const propsData = {
     klickartURL,
     jwtSecret,
+    hotmartURL,
   };
 
   describe('when component is mounted', () => {

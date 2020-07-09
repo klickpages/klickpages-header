@@ -4,10 +4,10 @@ import HotmartHeader from './HotmartHeader.vue';
 describe('components/HotmartHeader.vue', () => {
   let wrapper;
 
-  const hotmartProURL = 'hotmartprourl.com.br';
+  const hotmartSrc = 'hotmartprourl.com.br';
 
   const propsData = {
-    hotmartProURL,
+    hotmartSrc,
   };
 
   describe('when component is mounted', () => {
@@ -19,6 +19,6 @@ describe('components/HotmartHeader.vue', () => {
   });
 
   it('should return propsData correctly', () => {
-    expect(wrapper.props().hotmartProURL).toBe('hotmartprourl.com.br');
+    expect(wrapper.props().hotmartSrc).toBe('hotmartprourl.com.br');
   });
 });
