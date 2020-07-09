@@ -4,6 +4,10 @@
     :class="{'hotmart-pro': isHotmartPro}"
     role="navigation"
     v-if="settingsLoaded">
+    <hotmart-header
+      v-if="isHotmartPro"
+      :hotmartSrc="hotmartURL"
+    />
     <menu-switch :class="{'hotmart-pro': isHotmartPro}" />
     <div class="container no-padding">
       <home-link />
@@ -18,6 +22,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import HotmartHeader from '@/components/HotmartHeader.vue';
 import MenuSwitch from './MenuSwitch.vue';
 import HomeLink from './HomeLink.vue';
 import LocaleDropdown from './LocaleDropdown.vue';
@@ -34,6 +39,7 @@ export default {
   props: {
     klickartURL: String,
     jwtSecret: String,
+    hotmartURL: String,
   },
   data() {
     return {
@@ -42,6 +48,7 @@ export default {
     };
   },
   components: {
+    HotmartHeader,
     MenuSwitch,
     NavLinkList,
     LocaleDropdown,
