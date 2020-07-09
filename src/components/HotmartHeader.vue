@@ -8,11 +8,11 @@
 export default {
   name: 'HotmartHeader',
   props: {
-    hotmartProURL: String,
+    hotmartSrc: String,
   },
   mounted() {
     const hotmartHeader = document.createElement('script');
-    hotmartHeader.src = this.hotmartProURL;
+    hotmartHeader.src = this.hotmartSrc;
     document.body.append(hotmartHeader);
   },
 };
