@@ -1,9 +1,9 @@
 <template>
   <ul class="navbar__menu" id="kp-nav-header">
     <nav-link-item
-      :url="topBarConfig.home.url"
+      :url="topBarConfig.pages.url"
       :icon="'icon-kp-monitor'"
-      :linkTitle="topBarConfig.home.title"
+      :linkTitle="topBarConfig.pages.title"
     />
     <nav-link-item
       :url="topBarConfig.klicktest.url"

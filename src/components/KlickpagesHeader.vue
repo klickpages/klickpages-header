@@ -8,12 +8,10 @@
       v-if="isHotmartPro"
       :hotmartSrc="hotmartURL"
     />
-    <menu-switch :class="{'hotmart-pro': isHotmartPro}" />
+    <menu-switch />
     <div class="container no-padding">
       <home-link />
-      <locale-dropdown />
       <nav-link-list />
-      <mail-service-link />
       <notification-dropdown />
       <menu-user-dropdown />
     </div>
@@ -25,10 +23,8 @@ import { mapActions, mapGetters } from 'vuex';
 import HotmartHeader from '@/components/HotmartHeader.vue';
 import MenuSwitch from './MenuSwitch.vue';
 import HomeLink from './HomeLink.vue';
-import LocaleDropdown from './LocaleDropdown.vue';
 import NavLinkList from './NavLinkList.vue';
 import MenuUserDropdown from './MenuUserDropdown.vue';
-import MailServiceLink from './MailServiceLink.vue';
 import NotificationDropdown from './notification/NotificationDropdown.vue';
 
 import { setklickartURL } from '../config/klickart';
@@ -51,10 +47,8 @@ export default {
     HotmartHeader,
     MenuSwitch,
     NavLinkList,
-    LocaleDropdown,
     HomeLink,
     MenuUserDropdown,
-    MailServiceLink,
     NotificationDropdown,
   },
   methods: mapActions({
