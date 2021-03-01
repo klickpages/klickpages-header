@@ -6,9 +6,7 @@ A Vue component for klick applications to get the klickpages header.
 
 ``` npm install @klicksite/klickpages-header ```
 
-or
-
-``` yarn add @klicksite/klickpages-header ```
+>In this library we use npm to install depencies and build the package. Don't use yarn.
 
 ## Example
 
