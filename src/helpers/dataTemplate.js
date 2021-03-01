@@ -7,6 +7,10 @@ export default {
     title: '',
     url: '',
   },
+  page: {
+    title: '',
+    url: '',
+  },
   klicktest: {
     title: '',
     description: '',
@@ -31,7 +35,7 @@ export default {
     url: '',
   },
   mailservice: {
-    description: '',
+    title: '',
     url: '',
   },
   profile: {
@@ -60,5 +64,6 @@ export default {
   },
   user: {
     name: '',
+    ucode: '',
   },
 };

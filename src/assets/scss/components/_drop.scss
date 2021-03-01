@@ -10,8 +10,7 @@ $language: ("pt-BR", "en", "es");
   font-weight: bold;
   font-size: 11px;
   cursor: pointer;
-  margin-left: 17px;
-  margin-right: auto;
+  margin-left: auto;
 
   -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -52,9 +51,7 @@ $language: ("pt-BR", "en", "es");
     transform: translateX(-50%);
     border-radius: 3px;
     margin-top: 0;
-    border: 0;
     padding: 0;
-    padding-top: 15px;
 
     &:before {
       content: "";
@@ -67,6 +64,33 @@ $language: ("pt-BR", "en", "es");
       border-style: solid;
       border-width: 0 5px 5px 5px;
       border-color: transparent transparent #fff transparent;
+    }
+
+    &--notifications {
+      font-size: 14px;
+      width: 600px;
+      max-height: 550px;
+      margin-top: 10px;
+      transform: translateX(-67%);
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        @include border-radius(4px);
+        background: #dedede;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        @include border-radius(4px);
+        background: #c3c3c3;
+      }
+
+      .klickart-loader-container {
+        margin: 30px;
+      }
     }
   }
 
@@ -104,6 +128,49 @@ $language: ("pt-BR", "en", "es");
       .select {
         display: block;
         color: #cbcbcb;
+      }
+    }
+
+    &--notifications {
+      height: 100%;
+
+      p {
+        overflow-wrap: break-word;
+        line-height: 1.3;
+      }
+      a {
+        font-size: 12px;
+        color: #337ab7 !important;
+        padding: 0 !important;
+      }
+      span {
+        display: block;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+      .title {
+        font-size: 16px;
+        color: #777777;
+        overflow-wrap: break-word;
+      }
+      .date {
+        font-size: 10px;
+        color: #969696;
+      }
+
+      .error-container {
+        display: flex;
+        justify-content: space-between;
+
+        i {
+          font-size: 18px;
+          color: #9f9f9f;
+        }
+      }
+
+      .error-message {
+        margin: 0;
+        font-weight: initial;
       }
     }
   }

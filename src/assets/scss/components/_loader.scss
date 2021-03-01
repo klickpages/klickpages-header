@@ -1,0 +1,54 @@
+.klickart-loader-container {
+  position: relative;
+  margin-top: 30px;
+  text-align: center;
+
+  .klickart-loader {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    border: 0;
+
+    &:before,
+    &:after {
+      width: 24px;
+      height: 24px;
+      margin-top: -16px;
+    }
+  }
+
+  .kp-modular-label {
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+}
+
+.klickart-loader {
+  background-color: transparent;
+  border: 2px solid #dbdbdb;
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 28px;
+    height: 28px;
+    margin: -14px 0 0 -14px;
+    border: 2px solid $green-color;
+    border-radius: 100%;
+    content: "";
+  }
+
+  &:before {
+    border-color: lighten($green-color, 40%);
+  }
+
+  &:after {
+    border-color: transparent;
+    border-right-color: $green-color;
+    @extend .kp-animate-load-rotate;
+  }
+}

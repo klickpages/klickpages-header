@@ -1,5 +1,5 @@
 import MockAdapter from 'axios-mock-adapter';
-import TopBarRequest from '../../../services/klickartRequest/topBar';
+import TopBarRequest from '../../../services/api/klickart/topBar';
 import actions from './actions';
 import topBarConfigDataTemplate from '../../../helpers/dataTemplate';
 
@@ -9,15 +9,14 @@ jest.mock('@/i18n', () => (
 ));
 
 describe('store/modules/topBar/actions', () => {
-  const klickartUrl = 'http://art.klickpages.local';
-  const topBarRequest = new TopBarRequest({ klickartUrl });
+  const topBarRequest = new TopBarRequest();
   const mockTopBarRequest = new MockAdapter(topBarRequest.axios);
 
   const commit = jest.fn();
   let mockedData;
 
   describe('getConfig', () => {
-    beforeEach(() => {
+    beforeAll(() => {
       mockedData = topBarConfigDataTemplate;
     });
 
@@ -28,8 +27,9 @@ describe('store/modules/topBar/actions', () => {
     it('should commit SET_CONFIG with topBar config data', (done) => {
       mockTopBarRequest.onGet().reply(200, mockedData);
 
-      actions.getConfig({ commit }, klickartUrl).then(() => {
+      actions.getConfig({ commit }).then(() => {
         expect(commit).toHaveBeenCalledWith('SET_CONFIG', mockedData);
+
         done();
       });
     });

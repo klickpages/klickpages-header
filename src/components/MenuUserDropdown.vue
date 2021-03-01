@@ -15,6 +15,12 @@
       </a>
     </li>
     <li>
+      <a class="option" :href="topBarConfig.mailservice.url">
+        <mail-service-icon />
+        {{topBarConfig.mailservice.title}}
+      </a>
+    </li>
+    <li>
       <a class="option" :href="topBarConfig.domain.url">
         <domain-icon />
         {{topBarConfig.domain.title}}
@@ -33,9 +39,9 @@
 <script>
 import { mapGetters } from 'vuex';
 import DomainIcon from './icons/Domain.vue';
+import MailServiceIcon from './icons/MailService.vue';
 import ProfileIcon from './icons/Profile.vue';
 import LogoutIcon from './icons/Logout.vue';
-
 export default {
   computed: mapGetters({
     topBarConfig: 'topBar/config',
@@ -43,6 +49,7 @@ export default {
   components: {
     DomainIcon,
     ProfileIcon,
+    MailServiceIcon,
     LogoutIcon,
   },
 };

@@ -50,6 +50,15 @@ export default {};
 
 ## Documentation
 
-| prop        | description                               | required | default |
-|-------------|-------------------------------------------|----------|---------|
-| klickartUrl | klickart url according to the environment | yes      | null    |
+| prop        | description                                 | required | default |
+|-------------|-------------------------------------------  |----------|---------|
+| klickartURL | klickart url according to the environment   | yes      | null    |
+| jwtSecret   | secret shared with klickart                 | yes      | null    |
+| hotmartURL  | hotmart-pro url according to the environment| yes      | url*    |
+
+* url hotmart for development/staging/test & production must be provided by hotmart.
+
+## Guide for developers
+
+Acess the developer-guide:
+ [Developer-guide](./developer-guide.md)

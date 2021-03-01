@@ -1,7 +1,6 @@
 /****************************************
 *   Menu
 ****************************************/
-
 .navbar {
   position: fixed;
   right: 0;
@@ -12,6 +11,12 @@
   color: #a0aaac;
   background: #fff;
   border-bottom: 1px solid #eee;
+  font-family: "Open sans";
+  box-sizing: border-box;
+
+  & * {
+    box-sizing: border-box;
+  }
 
   li {
     list-style: none;
@@ -53,7 +58,7 @@
   }
 
   .nav-mail {
-    margin-right: 23px;
+    margin-right: 20px;
     position: relative;
 
     svg {
@@ -78,9 +83,9 @@
       display: block;
     }
   }
-  
+
   .nav-notifications {
-    margin-right: 20px;
+    margin-right: 10px;
     position: relative;
 
     svg {
@@ -120,30 +125,33 @@
 
     i {
       font-size: 15px;
-      margin-right: 10px;
+      margin-right: 5px;
       vertical-align: sub;
     }
 
     > li {
       float: left;
       position: relative;
+      margin: 0 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
 
       > a {
         display: block;
-        color: #a0aaac;
+        color: #848A91;
         text-transform: uppercase;
         font-size: 10px;
         letter-spacing: 1px;
         font-weight: bold;
         padding: 22px 0;
-        margin: 0 13px;
         position: relative;
         background-color: transparent;
         border-bottom: 2px solid transparent;
         text-decoration: none;
 
         @media(max-width: 1199px) and (min-width: 992px) {
-          margin: 0 10px;
           padding: 15px 0;
 
           i {
@@ -182,27 +190,27 @@
 
   .user__text {
     display: inline-block;
-    max-width: 170px;
+    max-width: 80px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 
     @media(max-width: 1199px) {
-      max-width: 150px;
+      max-width: 90px;
     }
   }
 
   .menu-user {
     position: relative;
     padding: 15px 0;
-    color: #a0aaac;
+    color: #848A91;
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: 1px;
     font-weight: bold;
 
     .kp-user {
-      color: #a0aaac;
+      color: #848A91;
       text-decoration: none;
 
       &::after {
@@ -273,7 +281,7 @@
 
         .option {
           font-size: 13px;
-          color: $grey-color;
+          color: #848A91;
           text-transform: uppercase;
           font-weight: bold;
           padding: 21px 22px;
@@ -367,10 +375,9 @@
       padding: 0;
       background: transparent;
       text-transform: uppercase;
-      margin: -3px 0 0 3px;
+      margin-top: -3px;
+      margin-left: 3px;
       font-size: 12px;
-      vertical-align: baseline;
-      width: auto;
 
       &:active {
         @include no-box-shadow();
@@ -439,10 +446,19 @@
   }
 }
 
+.navbar.hotmart-pro {
+  top: 70px;
+}
+
 .menu--switch {
   padding: 10px 0;
   background: #fbfbfb;
-  border-bottom: 1px solid #eee;
+  display: flex;
+  width: 100%;
+
+  &__wrapper {
+    border-bottom: 1px solid #eee;
+  }
   
   li {
     text-decoration: none;
@@ -461,7 +477,7 @@
   }
 
   a {
-    color: #a0aaac;
+    color: #848A91 !important;
     text-decoration: none;
   }
 
@@ -469,6 +485,7 @@
     height: 12px;
   }
 }
+
 /* Mobile */
 
 @media (max-width:991px) {
@@ -570,5 +587,9 @@
 }
 
 .pt--large {
-  padding-top: 86px;
+  padding-top: 54px;
+}
+
+.pt--large.hotmart-pro {
+  padding-top: 54px;
 }

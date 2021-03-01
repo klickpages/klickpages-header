@@ -1,5 +1,5 @@
-import i18n from '../../i18n';
-import TopBar from './topBar';
+import i18n from '../../../i18n';
+import Notifications from './notifications';
 import Klickart from './index';
 
 jest.mock('./index', () => (
@@ -12,18 +12,18 @@ jest.mock('@/i18n', () => (
 
 i18n.locale = 'pt-BR';
 
-describe('services/api/klickart/request/topBar', () => {
-  let topBar;
+describe('services/api/klickart/request/notifications', () => {
+  let notifications;
   let expectedConfig = {};
 
   describe('When creating a new topBar', () => {
     beforeAll(() => {
-      expectedConfig.path = `${i18n.locale}/partials/top_bar_config`;
-      topBar = new TopBar();
+      expectedConfig.path = `${i18n.locale}/notifications`;
+      notifications = new Notifications();
     });
 
-    it('should define a new topBar', () => {
-      expect(topBar).toBeInstanceOf(Klickart);
+    it('should define a new notifications', () => {
+      expect(notifications).toBeInstanceOf(Klickart);
     });
 
     it('should have called Klickart with the expected configurantions', () => {
@@ -31,22 +31,22 @@ describe('services/api/klickart/request/topBar', () => {
     });
   });
 
-  describe('When creating a new topBar with a configuration', () => {
+  describe('When creating a new notifications with a configuration', () => {
     beforeAll(() => {
       const config = {
         param: true,
       };
 
       expectedConfig = {
-        path: `${i18n.locale}/partials/top_bar_config`,
+        path: `${i18n.locale}/notifications`,
         param: true,
       };
 
-      topBar = new TopBar(config);
+      notifications = new Notifications(config);
     });
 
     it('should define a new topBar', () => {
-      expect(topBar).toBeDefined();
+      expect(notifications).toBeDefined();
     });
 
     it('should have called Klickart with the expected configurantions', () => {
