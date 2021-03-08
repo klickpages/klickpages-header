@@ -452,12 +452,12 @@
 
 .menu--switch {
   padding: 10px 0;
-  background: #fbfbfb;
   display: flex;
   width: 100%;
 
   &__wrapper {
     border-bottom: 1px solid #eee;
+    background: #fbfbfb;
   }
   
   li {
